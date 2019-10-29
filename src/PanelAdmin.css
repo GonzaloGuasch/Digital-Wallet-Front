@@ -1,0 +1,25 @@
+.windowAdmin{
+    background-color: #95a5a6;
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid rgb(44,62,80,.2);
+
+}
+.buttons{
+}
+
+#btnVer{
+    margin: 20px;
+    width: 100px;
+}
+#btnModificar{
+    margin: 20px;
+    width: 100px;
+}
+#btnEliminar{
+    margin: 20px;
+}
+#btnAgregar{
+    margin: 20px;
+}
