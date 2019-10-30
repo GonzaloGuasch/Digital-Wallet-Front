@@ -1,0 +1,15 @@
+.Icon-Bar{
+    -webkit-box-shadow: 4px 18px 14px -16px rgba(0,0,0,0.56);
+    -moz-box-shadow: 4px 18px 14px -16px rgba(0,0,0,0.56);
+    box-shadow: 4px 18px 14px -16px rgba(0,0,0,0.56);
+    margin: 0px auto auto;
+    width: 105%;
+    height:45px;
+    padding: 10px 0px 10px 10px;
+}
+
+.Digital-wallet{
+    padding-top: 12px;
+    margin-left: 50px;
+
+}
