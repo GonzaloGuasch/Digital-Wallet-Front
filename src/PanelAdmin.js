@@ -10,7 +10,7 @@ class PanelAdmin extends React.Component{
             <div className="filterUser">
 
                 <h3>Listado de usuarios</h3>
-                <div className="input-group mb-3">
+                <div className="input-group mb-3" id="searchText">
 
                     <input type="text" className="form-control" placeholder="Search"></input>
                         <div className="input-group-append">
@@ -19,15 +19,7 @@ class PanelAdmin extends React.Component{
                 </div>
             </div>
             <div className="tableUser">
-                <table>
-                    <tr className="headTable">
-                        <td>Nombre</td>
-                        <td>Apellido</td>
-                        <td>Usuario</td>
-                        <td>Estado</td>
-                    </tr>
 
-                </table>
             </div>
             <div className="buttons">
                 <button type="button" className="btn btn-primary" id="btnVer">Ver</button>
