@@ -1,18 +1,18 @@
 import React from 'react';
 import './Login.css'
-import 'bootstrap/dist/css/bootstrap.css'
 import axios from "axios"
+
 
 class Login extends React.Component{
 
     constructor(props){
-        super(props)
+        super(props);
 
         this.state ={
             email: '',
             password: '',
-        }
-        this.handleEmail = this.handleEmail.bind(this)
+        };
+        this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this)
     }
 
@@ -23,21 +23,40 @@ class Login extends React.Component{
         this.setState({password: event.target.value})
     }
 
-    logUser = () =>{
-        axios.post("http://localhost:7000/login",{
+
+    handleLogError = () => {
+        alert("Error")
+    };
+    handleLog = () => {
+
+    };
+    handleFinalyLog = () => {
+
+    };
+
+
+
+    logUser = () => {
+        axios.post("http://localhost:7000/login", {
             email: this.state.email,
             password: this.state.password
         })
-    }
+            .then(this.handleLog)
+            .catch(this.handleLogError)
+            .finally(this.handleFinalyLog)
+    };
 
     render() {
 
         return(
-        <div className="DivLog">
-            <form class="form-group" onSubmit={this.nextPage}>
+        <div className="log">
+            <div className="header-Log">
+                <h1>DigitalWallet</h1>
+            </div>
+            <form className="formDW">
                 <h5>Nombre de Usuario</h5>
                 <input type="text"
-                       className="form-control"
+                       className="inputTextForm"
                        placeholder="Write your username"
                        value={this.state.email}
                        onChange={this.handleEmail}
@@ -48,7 +67,7 @@ class Login extends React.Component{
 
                 <h5>Contraseña</h5>
                     <input type="password"
-                           className="form-control"
+                           className="inputTextForm"
                            placeholder="Write your password"
                            value={this.state.password}
                            onChange={this.handlePassword}
@@ -60,14 +79,14 @@ class Login extends React.Component{
                 </br>
 
                 <button type="button"
-                        className="btn btn-primary btn-block"
+                        className="btnConfirm"
                         onClick={this.logUser}>
-                    Logueame!
+                    Login
                 </button>
                 <br/>
 
                 <button type="submit"
-                        className="btn btn-link"
+                        className="btnDenied"
                         value="Submit">
                     Register
                 </button>

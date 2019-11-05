@@ -1,7 +1,8 @@
 import React from 'react';
 import './Register.css'
-import 'bootstrap/dist/css/bootstrap.css'
 import axios from "axios"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
 
 
 class Register extends React.Component{
@@ -53,12 +54,18 @@ class Register extends React.Component{
 
     render() {
         return(
-            <div className="DivRegister">
-                <form class="form-group">
+            <div className="register">
+                <div className="header-Reg">
+                    <FontAwesomeIcon icon={"faCreditCard"} className="icon" />
+                    <h1>Digital Wallet</h1>
+                </div>
+
+                <form className="formDW">
+
 
                     <h5>Email</h5>
                     <input type="text"
-                           className="form-control"
+                           className="inputTextForm"
                            placeholder="Email..."
                            value={this.state.email}
                            onChange={this.handleEmail}
@@ -69,7 +76,7 @@ class Register extends React.Component{
 
                     <h5>First name</h5>
                     <input type="text"
-                           className="form-control"
+                           className="inputTextForm"
                            placeholder="Write your first name..."
                            value={this.state.firstName}
                            onChange={this.handleFirstName}
@@ -80,7 +87,7 @@ class Register extends React.Component{
 
                     <h5>Last name</h5>
                     <input type="text"
-                           className="form-control"
+                           className="inputTextForm"
                            placeholder="Write your last name..."
                            value={this.state.lastName}
                            onChange={this.handleLastName}
@@ -89,10 +96,10 @@ class Register extends React.Component{
                     <br>
                     </br>
 
-                    <h5>IdCard</h5>
+                    <h5>Id card</h5>
                     <input type="text"
-                           className="form-control"
-                           placeholder="Write your idCard"
+                           className="inputTextForm"
+                           placeholder="Write your id card"
                            value={this.state.idCard}
                            onChange={this.handleIdCard}
                            >
@@ -102,7 +109,7 @@ class Register extends React.Component{
 
                     <h5>Password</h5>
                     <input type="password"
-                           className="form-control"
+                           className="inputTextForm"
                            placeholder="Write your password"
                            value={this.state.password}
                            onChange={this.handlePassword}
@@ -114,14 +121,14 @@ class Register extends React.Component{
                     </br>
 
                     <button type="button"
-                            className="btn btn-primary btn-block"
+                            className="btnConfirm"
                             onClick={this.registerUser}>
-                        Registrame!
+                        Register
                     </button>
                     <br/>
 
                     <button type="submit"
-                            className="btn btn-link"
+                            className="btnDenied"
                             value="Submit">
                         Back
                     </button>

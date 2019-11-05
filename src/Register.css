@@ -1,17 +1,19 @@
-.DivLog {
+.register {
     width: 500px;
-    height: 350px;
-    align-items: center;
-    background-color: #95a5a6;
+    height: 550px;
     margin: auto;
-    width: 50%;
-    border: 3px solid rgb(44,62,80,.2);
-    padding: 10px;
-    margin-top: 100px;
-    border-radius: 10px;
+    margin-top: 50px;
+
+
+    -webkit-box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
+    -moz-box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
+    box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
 }
-button {
+.header-Reg{
     text-align: center;
-    height: auto;
-    width: auto;
+}
+h5{
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 3px;
 }
