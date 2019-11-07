@@ -3,18 +3,22 @@ import './CashIn.css'
 import 'pretty-checkbox/dist/pretty-checkbox.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
-
+import axios from 'axios'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import moment from 'moment'
 
 export default class CashIn extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      fromCVU: '060065243',
+      debitCard: 'false',
       amount: '',
-      payment: '',
       cardNumber: '',
       fullName: '',
-      securityCode: '',
       endDate: '',
+      securityCode: '',
     }
     this.handleAmountChange = this.handleAmountChange.bind(this)
     this.handlePaymentChange = this.handlePaymentChange.bind(this)
@@ -22,12 +26,13 @@ export default class CashIn extends React.Component {
     this.handleFullNameChange = this.handleFullNameChange.bind(this)
     this.handleSecurityCodeChange = this.handleSecurityCodeChange.bind(this)
     this.handleEndDateChange = this.handleEndDateChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleAmountChange(event) {
     this.setState({amount: event.target.value})
   }
   handlePaymentChange(event) {
-    this.setState({payment: event.target.value})
+    this.setState({debitCard: event.target.value})
   }
   handleCardNumberChange(event) {
     this.setState({cardNumber: event.target.value})
@@ -38,8 +43,12 @@ export default class CashIn extends React.Component {
   handleSecurityCodeChange(event) {
     this.setState({securityCode: event.target.value})
   }
-  handleEndDateChange(event) {
-    this.setState({endDate: event.target.value})
+  handleEndDateChange(date) {
+    this.setState({endDate: date})
+  }
+  async handleSubmit() {
+    const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY')
+    axios.post('http://localhost:7000/cashin', Object.assign(this.state, {endDate: dateWithSlashes})).then((res) => console.log(res))
   }
   render() {
     return (
@@ -57,13 +66,13 @@ export default class CashIn extends React.Component {
           </div>
           <div className="radio-buttons-container">
             <div className="pretty p-default p-round">
-              <input type="radio" id="credit-card" name="payment" value="Credit Card" checked={this.state.payment === "Credit Card"} onChange={this.handlePaymentChange}/>
+              <input type="radio" id="credit-card" name="payment" value="false" checked={!this.state.isDebitCard} onChange={this.handlePaymentChange}/>
               <div className="state p-success">
                 <label htmlFor="credit-card">Credit Card</label>
               </div>
             </div>
             <div className="pretty p-default p-round">
-              <input type="radio" id="debit-card" name="payment" value="Debit Card"  checked={this.state.payment === "Debit Card"} onChange={this.handlePaymentChange}/>
+              <input type="radio" id="debit-card" name="payment" value="true"  checked={!!this.state.isDebitCard} onChange={this.handlePaymentChange}/>
               <div className="state p-success">
                 <label htmlFor="debit-card">Debit Card</label>
               </div>
@@ -92,12 +101,16 @@ export default class CashIn extends React.Component {
               <label htmlFor="end-date">
                 End Date
               </label>
-              <input type="text" name="end-date" value={this.state.endDate} onChange={this.handleEndDateChange}/>
+              <DatePicker
+                selected={this.state.endDate}
+                onChange={date => this.handleEndDateChange(date)}
+                dateFormat="dd/MM/yyyy"
+              />
             </div>
           </div>
           <div className="buttons-container">
             <button className="button cancel">Cancel</button>
-            <button className="button confirm" onClick={console.log(this.state)}>Confirm</button>
+            <button className="button confirm" onClick={this.handleSubmit}>Confirm</button>
           </div>
         </div>
       </div>
