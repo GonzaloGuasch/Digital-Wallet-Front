@@ -1,5 +1,5 @@
 import React from 'react';
-import './Transfer.css'
+import '../css/Transfer.css'
 
 class Transfer extends React.Component{
     render(){

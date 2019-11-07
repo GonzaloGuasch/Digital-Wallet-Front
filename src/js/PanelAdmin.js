@@ -1,5 +1,5 @@
 import React from 'react';
-import './PanelAdmin.css'
+import '../css/PanelAdmin.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 
