@@ -1,5 +1,5 @@
 import React from 'react';
-import './CashIn.css'
+import '../css/CashIn.css'
 import 'pretty-checkbox/dist/pretty-checkbox.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
