@@ -5,18 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NaVBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/NaVBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PanelAdmin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/PanelAdmin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PanelAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/PanelAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transfer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Transfer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transfer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Transfer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/nav.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +110,19 @@
       <updated>1572440993771</updated>
       <workItem from="1572441007428" duration="579000" />
       <workItem from="1572442231652" duration="2369000" />
+      <workItem from="1572558889589" duration="117000" />
+      <workItem from="1572639961627" duration="1453000" />
+      <workItem from="1572721880954" duration="8402000" />
+      <workItem from="1572828875896" duration="12327000" />
     </task>
+    <task id="LOCAL-00001" summary="Agrego campos para mostrar datos del perfil.">
+      <created>1572558989505</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1572558989505</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +140,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Agrego campos para mostrar datos del perfil." />
+    <option name="LAST_COMMIT_MESSAGE" value="Agrego campos para mostrar datos del perfil." />
   </component>
   <component name="masterDetails">
     <states>
