@@ -3,6 +3,7 @@ import '../css/App.css';
 import {BrowserRouter, Route, Switch,} from 'react-router-dom';
 import ProfileView from "./ProfileView";
 import Login from "./Login";
+import CashIn from './CashIn'
 
 class App extends Component {
 
@@ -11,6 +12,7 @@ class App extends Component {
             <div className='digital-wallet'>
                 <BrowserRouter>
                     <Switch>
+                        <Route path="/cashin" component={CashIn}/>
                         <Route path="/" component={ProfileView}/>
                         <Route path="*" component={Login}/>
                     </Switch>
