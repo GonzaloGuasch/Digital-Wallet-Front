@@ -5,15 +5,23 @@ import axios from "axios"
 
 class Login extends React.Component{
 
+
     constructor(props){
         super(props);
 
         this.state ={
             email: '',
             password: '',
+            error: '',
         };
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this)
+        this.logUser = this.logUser.bind(this)
+        this.checkInput = this.checkInput.bind(this)
+        this.redirectToNextPage = this.redirectToNextPage.bind(this)
+        this.redirectToRegister = this.redirectToRegister.bind(this)
+        this.handleLog = this.handleLog.bind(this)
+        this.handleError = this.handleError.bind(this)
     }
 
     handleEmail(event){
@@ -22,19 +30,26 @@ class Login extends React.Component{
     handlePassword(event){
         this.setState({password: event.target.value})
     }
-
-
-    handleLogError = () => {
-        alert("Error")
-    };
-    handleLog = () => {
-
-    };
-    handleFinalyLog = () => {
-
+    redirectToNextPage = () =>{
+        this.props.history.push('/hello')
+    }
+    redirectToRegister = () => {
+        this.props.history.push('/register')
     };
 
-
+    checkInput = () => {
+        this.setState({error: ""})
+        if (this.state.email.trim().length < 1 || this.state.password.trim().length < 1) {
+            this.setState({ error: "Campos vacios..." });
+            return;
+        }
+        if (!this.state.email.trim().includes("@")) {
+            this.setState({ error: "Usuario mal formado..." });
+            return;
+        }
+        console.log(this.logUser)
+        this.logUser()
+    }
 
     logUser = () => {
         axios.post("http://localhost:7000/login", {
@@ -42,9 +57,20 @@ class Login extends React.Component{
             password: this.state.password
         })
             .then(this.handleLog)
-            .catch(this.handleLogError)
-            .finally(this.handleFinalyLog)
+            .catch(this.handleError)
     };
+
+    handleLog = () => {
+        this.redirectToNextPage()
+    };
+    handleError = (error) => {
+        if (error.response && error.response.status === 401) {
+            this.setState({error:"Mal usuario o contraseña..."})
+            return;
+        } else {
+        this.setState({error:"Estamos teniendo problemas..."});
+        return;}
+    }
 
     render() {
 
@@ -75,19 +101,22 @@ class Login extends React.Component{
                     </input>
                 <br>
                 </br>
-                <br>
-                </br>
+                <div className="errorInput">
+                    <label>{this.state.error}</label>
+                </div>
 
                 <button type="button"
                         className="btnConfirm"
-                        onClick={this.logUser}>
+                        onClick={this.checkInput}>
                     Login
                 </button>
                 <br/>
 
                 <button type="submit"
                         className="btnDenied"
-                        value="Submit">
+                        value="Submit"
+                        onClick={this.redirectToRegister}
+                >
                     Register
                 </button>
             </form>
@@ -97,6 +126,4 @@ class Login extends React.Component{
 
 
 }
-
-
     export default Login

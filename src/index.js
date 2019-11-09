@@ -6,5 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Login from "./Login";
 import PanelAdmin from "./PanelAdmin";
 import Register from "./Register";
+import Router from "./Router";
 
-ReactDOM.render(<Login />, document.getElementById('digitalWallet'));
+ReactDOM.render(<Router />, document.getElementById('digitalWallet'));
