@@ -1,18 +1,18 @@
 import React from 'react';
 
 
-class HelloWord extends React.Component{
+class HelloWorld extends React.Component{
 
     render() {
         return(
 
             <div>
 
-                <h1>HELLO WORD</h1>
+                <h1>HELLO WORLD</h1>
 
             </div>
         )
     }
 }
 
-export default HelloWord;
+export default HelloWorld;

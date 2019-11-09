@@ -2,7 +2,7 @@ import React from 'react';
 import Login from "./Login";
 import Register from "./Register";
 import {BrowserRouter, Route, Switch,} from 'react-router-dom';
-import HelloWord from "./HelloWord";
+import HelloWorld from "./HelloWorld";
 
 class Router extends React.Component{
  render() {
@@ -12,7 +12,7 @@ class Router extends React.Component{
                  <Switch>
                      <Route exact path="/" component={Login}/>
                      <Route exact path="/register" component={Register}/>
-                     <Route exact path="/hello" component={HelloWord}/>
+                     <Route exact path="/hello" component={HelloWorld}/>
                  </Switch>
              </BrowserRouter>
          </div>

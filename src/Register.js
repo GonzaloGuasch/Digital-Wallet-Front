@@ -7,20 +7,24 @@ import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
 
 class Register extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state ={
             email: '',
             firstName: '',
             lastName: '',
             idCard: '',
             password: '',
-        }
+            error: '',
+        };
 
-        this.handleEmail = this.handleEmail.bind(this)
-        this.handleFirstName = this.handleFirstName.bind(this)
-        this.handleLastName = this.handleLastName.bind(this)
-        this.handleIdCard = this.handleIdCard.bind(this)
-        this.handlePassword = this.handlePassword.bind(this)
+        this.handleEmail = this.handleEmail.bind(this);
+        this.handleFirstName = this.handleFirstName.bind(this);
+        this.handleLastName = this.handleLastName.bind(this);
+        this.handleIdCard = this.handleIdCard.bind(this);
+        this.handlePassword = this.handlePassword.bind(this);
+        this.redirectToLogin = this.redirectToLogin.bind(this);
+        this.checkRegister = this.registerUser.bind(this);
+        this.handleLog = this.handleLog.bind(this);
     }
 
 
@@ -41,8 +45,38 @@ class Register extends React.Component{
         this.setState({password: event.target.value})
     }
 
+    redirectToLogin = () => {
+        this.props.history.push('/login')
+    };
+
+    checkRegister = () =>{
+        debugger
+
+        this.setState({error: ""});
+        if (this.state.email.trim().length < 1
+            //|| this.state.password.trim().length < 1
+            //|| this.state.firstName.trim().length < 1
+            //|| this.state.lastName.trim().length < 1
+            //|| this.state.idCard.trim().length < 1
+        ) {
+            debugger
+            this.setState({ error: "Campos vacios..." });
+            console.log(this.state.error);
+            return;
+        }
+        if (!this.state.email.trim().includes("@")) {
+            this.setState({ error: "Usuario mal formado..." });
+            console.log(this.state.error);
+            return;
+        }
+
+        debugger
+        console.log(this.state.error);
+        this.registerUser()
+    };
 
     registerUser = () => {
+        debugger
         axios.post("http://localhost:7000/register",{
             email: this.state.email,
             firstName: this.state.firstName,
@@ -50,7 +84,14 @@ class Register extends React.Component{
             idCard: this.state.idCard,
             password: this.state.password
         })
-    }
+            .then(this.handleLog)
+    };
+    handleLog = () => {
+        this.redirectToNextPage()
+    };
+    redirectToNextPage = () =>{
+        this.props.history.push('/hello')
+    };
 
     render() {
         return(
@@ -117,19 +158,21 @@ class Register extends React.Component{
                     </input>
                     <br>
                     </br>
-                    <br>
-                    </br>
-
+                    <div className="errorDivReg">
+                        <label>{this.state.error}</label>
+                    </div>
                     <button type="button"
                             className="btnConfirm"
-                            onClick={this.registerUser}>
+                            onClick={this.checkRegister}>
                         Register
                     </button>
                     <br/>
 
                     <button type="submit"
                             className="btnDenied"
-                            value="Submit">
+                            value="Submit"
+                            onClick={this.redirectToLogin}
+                    >
                         Back
                     </button>
                 </form>

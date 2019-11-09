@@ -47,9 +47,8 @@ class Login extends React.Component{
             this.setState({ error: "Usuario mal formado..." });
             return;
         }
-        console.log(this.logUser)
         this.logUser()
-    }
+    };
 
     logUser = () => {
         axios.post("http://localhost:7000/login", {
@@ -70,7 +69,7 @@ class Login extends React.Component{
         } else {
         this.setState({error:"Estamos teniendo problemas..."});
         return;}
-    }
+    };
 
     render() {
 
