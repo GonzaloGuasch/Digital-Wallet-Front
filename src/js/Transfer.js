@@ -10,7 +10,7 @@ class Transfer extends React.Component{
             cvu: '',
             amount: '',
             errorMessage: ''
-        }
+        };
         this.checkTransferencia = this.checkTransferencia.bind(this);
         this.seatleAmount = this.seatleAmount.bind(this);
         this.seatleCVU = this.seatleCVU.bind(this);
