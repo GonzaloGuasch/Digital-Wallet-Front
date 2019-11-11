@@ -1,5 +1,5 @@
 import React from 'react'
-import './UnMovimiento.css'
+import '../css/UnMovimiento.css'
 
 class Movimiento extends React.Component{
     constructor(props){
