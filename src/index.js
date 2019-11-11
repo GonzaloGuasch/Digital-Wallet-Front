@@ -6,8 +6,5 @@ import 'semantic-ui-css/semantic.min.css'
 import App from "./js/App";
 
 ReactDOM.render(
-
-
-    <App/>, document.getElementById('digitalWallet'
-    )
+    <App/>, document.getElementById('digitalWallet')
 );
