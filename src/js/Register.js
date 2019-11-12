@@ -1,5 +1,5 @@
 import React from 'react';
-import './Register.css'
+import '../css/Register.css'
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
@@ -48,7 +48,7 @@ class Register extends React.Component{
     }
 
     redirectToLogin = () => {
-        this.props.history.push('/login')
+        this.props.history.push('/')
     };
 
     checkRegister = () =>{
@@ -105,7 +105,7 @@ class Register extends React.Component{
                 <form className="formDW">
 
 
-                    <h5>Email</h5>
+                    <h5 className="titleInput">Email</h5>
                     <input type="text"
                            className="inputTextForm"
                            placeholder="Email..."
@@ -116,7 +116,7 @@ class Register extends React.Component{
                     <br>
                     </br>
 
-                    <h5>First name</h5>
+                    <h5 className="titleInput">First name</h5>
                     <input type="text"
                            className="inputTextForm"
                            placeholder="Write your first name..."
@@ -127,7 +127,7 @@ class Register extends React.Component{
                     <br>
                     </br>
 
-                    <h5>Last name</h5>
+                    <h5 className="titleInput">Last name</h5>
                     <input type="text"
                            className="inputTextForm"
                            placeholder="Write your last name..."
@@ -138,7 +138,7 @@ class Register extends React.Component{
                     <br>
                     </br>
 
-                    <h5>Id card</h5>
+                    <h5 className="titleInput">Id card</h5>
                     <input type="text"
                            className="inputTextForm"
                            placeholder="Write your id card"
@@ -149,7 +149,7 @@ class Register extends React.Component{
                     <br>
                     </br>
 
-                    <h5>Password</h5>
+                    <h5 className="titleInput">Password</h5>
                     <input type="password"
                            className="inputTextForm"
                            placeholder="Write your password"

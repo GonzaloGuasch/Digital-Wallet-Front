@@ -1,6 +1,6 @@
 .log {
     width: 500px;
-    height: 400px;
+    height: 350px;
     margin: auto;
     margin-top: 50px;
 
@@ -10,6 +10,6 @@
     box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
 }
 .header-Log{
-    height: 100px;
+
     text-align: center;
 }

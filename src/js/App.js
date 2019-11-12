@@ -7,19 +7,19 @@ import CashIn from './CashIn'
 
 class App extends Component {
 
-    render() {
-        return (
-            <div className='digital-wallet'>
-                <BrowserRouter>
-                    <Switch>
-                        <Route path="/cashin" component={CashIn}/>
-                        <Route path="/" component={ProfileView}/>
-                        <Route path="*" component={Login}/>
-                    </Switch>
-                </BrowserRouter>
-            </div>
-        );
-    }
+    //render() {
+        //return (
+           // <div className='digital-wallet'>
+           //     <BrowserRouter>
+           //         <Switch>
+           //             <Route path="/cashin" component={CashIn}/>
+           //             <Route path="/" component={ProfileView}/>
+           //             <Route path="*" component={Login}/>
+           //         </Switch>
+           //     </BrowserRouter>
+           // </div>
+        //);
+    //}
 }
 
 export default App;

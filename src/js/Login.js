@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/Login.css'
 import axios from "axios"
+import '../css/index.css'
+import Register from "./Register";
 
 
 class Login extends React.Component{
@@ -60,6 +62,7 @@ class Login extends React.Component{
     };
 
     handleLog = () => {
+        localStorage.setItem('')
         this.redirectToNextPage()
     };
     handleErrorLog = (error) => {
@@ -79,7 +82,7 @@ class Login extends React.Component{
                 <h1>DigitalWallet</h1>
             </div>
             <form className="formDW">
-                <h5>Nombre de Usuario</h5>
+                <h5 className="titleInput">Nombre de Usuario</h5>
                 <input type="text"
                        className="inputTextForm"
                        placeholder="Write your username"
@@ -90,7 +93,7 @@ class Login extends React.Component{
                 <br>
                 </br>
 
-                <h5>Contraseña</h5>
+                <h5 className="titleInput">Contraseña</h5>
                     <input type="password"
                            className="inputTextForm"
                            placeholder="Write your password"
