@@ -23,8 +23,10 @@ class Register extends React.Component{
         this.handleIdCard = this.handleIdCard.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
         this.redirectToLogin = this.redirectToLogin.bind(this);
-        this.checkRegister = this.registerUser.bind(this);
-        this.handleLog = this.handleLog.bind(this);
+        this.checkRegister = this.checkRegister.bind(this);
+        this.handleReg = this.handleReg.bind(this);
+        this.registerUser = this.registerUser.bind(this)
+        this.handleErrorReg = this.handleErrorReg.bind(this)
     }
 
 
@@ -50,33 +52,27 @@ class Register extends React.Component{
     };
 
     checkRegister = () =>{
-        debugger
-
         this.setState({error: ""});
         if (this.state.email.trim().length < 1
-            //|| this.state.password.trim().length < 1
-            //|| this.state.firstName.trim().length < 1
-            //|| this.state.lastName.trim().length < 1
-            //|| this.state.idCard.trim().length < 1
+            || this.state.password.trim().length < 1
+            || this.state.firstName.trim().length < 1
+            || this.state.lastName.trim().length < 1
+            || this.state.idCard.trim().length < 1
         ) {
-            debugger
             this.setState({ error: "Campos vacios..." });
             console.log(this.state.error);
             return;
         }
         if (!this.state.email.trim().includes("@")) {
-            this.setState({ error: "Usuario mal formado..." });
+            this.setState({ error: "Email mal formado..." });
             console.log(this.state.error);
             return;
         }
 
-        debugger
-        console.log(this.state.error);
         this.registerUser()
     };
 
     registerUser = () => {
-        debugger
         axios.post("http://localhost:7000/register",{
             email: this.state.email,
             firstName: this.state.firstName,
@@ -84,13 +80,18 @@ class Register extends React.Component{
             idCard: this.state.idCard,
             password: this.state.password
         })
-            .then(this.handleLog)
+            .then(this.handleReg)
+            .catch(this.handleErrorReg)
     };
-    handleLog = () => {
+    handleReg = () => {
         this.redirectToNextPage()
     };
     redirectToNextPage = () =>{
         this.props.history.push('/hello')
+    };
+    handleErrorReg = () => {
+            this.setState({error:"Estamos teniendo problemas..."});
+            return;
     };
 
     render() {
@@ -158,8 +159,8 @@ class Register extends React.Component{
                     </input>
                     <br>
                     </br>
-                    <div className="errorDivReg">
-                        <label>{this.state.error}</label>
+                    <div className="errorInput">
+                        <a className="valid-input">{this.state.error}</a>
                     </div>
                     <button type="button"
                             className="btnConfirm"

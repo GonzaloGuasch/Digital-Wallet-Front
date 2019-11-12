@@ -24,14 +24,14 @@
     background: #d43a22;
     border: 0;
     margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 10px;
+margin-left: auto;
+margin-bottom: 10px;
 
-    width: 100%;
-    height: 50px;
-    border-radius: 5px;
-    color: white;
-    font-size: 20px;
+width: 100%;
+height: 50px;
+border-radius: 5px;
+color: white;
+font-size: 20px;
 
 }
 .btnConfirm:hover {
@@ -56,4 +56,16 @@ button {
     font-size: 16px;
     margin-bottom: 10px;
     width: 100%;
+}
+.errorInput{
+    text-align: center;
+}
+.valid-input {
+    color: #000000;
+    transition: color .5s;
+    background-color: #FFFFFF;
+}
+.valid-input :hover{
+    color: #d43a22;
+    background-color: #d43a22;
 }

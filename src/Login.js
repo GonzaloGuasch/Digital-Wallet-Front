@@ -21,7 +21,7 @@ class Login extends React.Component{
         this.redirectToNextPage = this.redirectToNextPage.bind(this)
         this.redirectToRegister = this.redirectToRegister.bind(this)
         this.handleLog = this.handleLog.bind(this)
-        this.handleError = this.handleError.bind(this)
+        this.handleErrorLog = this.handleErrorLog.bind(this)
     }
 
     handleEmail(event){
@@ -56,13 +56,13 @@ class Login extends React.Component{
             password: this.state.password
         })
             .then(this.handleLog)
-            .catch(this.handleError)
+            .catch(this.handleErrorLog)
     };
 
     handleLog = () => {
         this.redirectToNextPage()
     };
-    handleError = (error) => {
+    handleErrorLog = (error) => {
         if (error.response && error.response.status === 401) {
             this.setState({error:"Mal usuario o contraseña..."})
             return;
@@ -101,7 +101,7 @@ class Login extends React.Component{
                 <br>
                 </br>
                 <div className="errorInput">
-                    <label>{this.state.error}</label>
+                    <a className="valid-input">{this.state.error}</a>
                 </div>
 
                 <button type="button"
