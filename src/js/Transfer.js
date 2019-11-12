@@ -1,5 +1,5 @@
 import React from 'react';
-import './Transfer.css';
+import '../css/Transfer.css';
 import {crearTransferencia} from "./api";
 
 

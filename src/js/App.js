@@ -3,7 +3,8 @@ import '../css/App.css';
 import {BrowserRouter, Route, Switch,} from 'react-router-dom';
 import ProfileView from "./ProfileView";
 import Login from "./Login";
-import CashIn from './CashIn'
+import CashIn from './CashIn';
+import Transfer from "./Transfer";
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
                 <BrowserRouter>
                     <Switch>
                         <Route path="/cashin" component={CashIn}/>
+                        <Route path="/transfer" component={Transfer}/>
                         <Route path="/" component={ProfileView}/>
                         <Route path="*" component={Login}/>
                     </Switch>

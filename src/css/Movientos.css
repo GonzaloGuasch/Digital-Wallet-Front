@@ -42,3 +42,13 @@
     padding-bottom: 12px;
     padding-top: 12px;
 }
+
+.button-container{
+    margin-left: 600px;
+    margin-top: 25px;
+    background-color: white;
+    border: 1px solid #e2e2e0;
+    border-radius: 7px;
+    width: 120px;
+    height: 25px;
+}
