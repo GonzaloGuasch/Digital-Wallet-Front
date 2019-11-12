@@ -5,17 +5,19 @@ import ProfileView from "./ProfileView";
 import Login from "./Login";
 import CashIn from './CashIn';
 import Transfer from "./Transfer";
+import NavBar from "./NavBar";
 
 class App extends Component {
 
     render() {
         return (
             <div className='digital-wallet'>
+
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/cashin" component={CashIn}/>
+                        <Route path="/cashin" render={props => <CashIn {...props} />}/>
                         <Route path="/transfer" component={Transfer}/>
-                        <Route path="/" component={ProfileView}/>
+                        <Route path="/" render={props => <ProfileView {...props}/>}/>
                         <Route path="*" component={Login}/>
                     </Switch>
                 </BrowserRouter>

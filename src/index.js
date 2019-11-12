@@ -7,8 +7,10 @@ import App from "./js/App";
 import Transfer from "./js/Transfer";
 import Movimientos from "./js/Movimientos";
 import NavBar from "./js/NavBar";
+import PanelAdmin from "./js/PanelAdmin";
 
 ReactDOM.render(
-   // <NavBar />, document.getElementById('digitalWallet')
-    <Movimientos cvu = {'060065243'} />, document.getElementById('digitalWallet')
+       //<Transfer user={'060065243'} />, document.getElementById('digitalWallet')
+    //<Movimientos user={'060065243'} />, document.getElementById('digitalWallet')
+    <App />, document.getElementById('digitalWallet')
 );

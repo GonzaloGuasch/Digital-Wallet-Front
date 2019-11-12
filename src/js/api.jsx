@@ -8,5 +8,5 @@ const request = (type, path, body) => axios
 
 
 export const movimientosDeCVU = body => request('get', '/transactions/' + body.cvu);
-export const crearTransferencia = body => request('post', '/transfer');
+export const crearTransferencia = body => request('post', '/transfer', body);
 export const saldoDe = body => request('get', '/account/'+ body.cvu);
