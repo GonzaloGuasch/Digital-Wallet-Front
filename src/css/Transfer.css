@@ -1,0 +1,52 @@
+.body {
+    background-color: white;
+}
+.Transfer-name{
+    text-align: left;
+    margin-left: 70px;
+    font-size: 25px
+}
+.Transfer-Conteiner{
+    margin: 123px auto auto;
+    width: 50%;
+    padding: 10px 0px 10px 10px;
+    -webkit-box-shadow: 3px 1.5px 8px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 1.5px 8px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 1.5px 8px 0px rgba(0,0,0,0.75);
+}
+
+.Amount-CVU-name {
+    font-size: 12px;
+    margin-top: 20px;
+
+}
+.text-box {
+    margin-bottom: 20px;
+    width: 90%;
+    display:inline-block;
+}
+.Button-container {
+    margin-bottom: 20px;
+    margin-left: 350px;
+}
+.Accept-button{
+    color: white;
+    background-color: #038c7f;
+    border-radius: 7px;
+    width: 140px;
+    height: 42px;
+    margin-right: 20px;
+}
+.Cancel-button{
+    color: white;
+    background-color: #d43a22;
+    border-radius: 7px;
+    width: 140px;
+    height: 42px;
+}
+.error-container{
+    color: red;
+    font-size: 20px;
+    margin-left: 275px;
+    margin-top: 50px;
+}

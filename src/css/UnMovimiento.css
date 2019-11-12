@@ -1,0 +1,29 @@
+.UnMoviento-conteiner{
+    width: 90%;
+    background-color: red;
+}
+
+.inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    font-size: 30px;
+
+}
+#money{
+    color: #038c7f;
+}
+#Bottom-border{
+    border-bottom: 1px solid;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 900px;
+}
+.children{
+    width: 30%;
+    margin-bottom: 12px;
+}
+
