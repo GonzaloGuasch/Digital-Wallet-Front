@@ -1,14 +1,12 @@
 import React from 'react'
 import '../css/Movientos.css'
 import Movimiento from './Movimiento.js'
-import {movimientosDeCVU} from "./api";
-import {saldoDe} from "./api";
-import { useHistory } from "react-router-dom";
+import {movimientosDeCVU, saldoDe} from "./api";
+import {useHistory} from "react-router-dom";
 
 export default class Movimientos extends React.Component {
     constructor(props){
         super(props);
-
         this.state = {
             cvu: props.user,
             movientos: [],
@@ -31,20 +29,14 @@ export default class Movimientos extends React.Component {
     }
     setearDinero(res){
         const dinero = JSON.parse(res);
-        console.log(dinero)
         this.setState({
             saldo: dinero.balance
-        })
+        });
     }
     amountOfCVU(){
         const cvu = this.state.cvu;
         const res = saldoDe({cvu: cvu});
     }
-
-    back(){
-
-    }
-
     asd() {
         let history = useHistory();
         history.push("/lalala")
@@ -76,7 +68,7 @@ export default class Movimientos extends React.Component {
                         {misMovimientos}
                     </table>
                 </div>
-                <button class="button-container" onClick={this.back}> Sing out </button>
+                <button class="button-container" onClick={this.back}> Sign out</button>
             </div>
         )};
 
