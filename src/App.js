@@ -9,7 +9,7 @@ import Movimientos from "./js/Movimientos"
 import Transfer from "./js/Transfer";
 
 
-class Router extends React.Component{
+class App extends React.Component {
  render() {
      return(
          <div className='digital-wallet'>
@@ -30,4 +30,4 @@ class Router extends React.Component{
  }
 }
 
-export default Router;
+export default App;

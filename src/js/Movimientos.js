@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/Movientos.css'
+import '../css/Movimientos.css'
 import Movimiento from './Movimiento.js'
 import {movimientosDeCVU, saldoDe} from "./api";
 

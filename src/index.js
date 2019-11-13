@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'semantic-ui-css/semantic.min.css'
-import Router from "./Router";
+import App from "./App";
 
 ReactDOM.render(
-    <Router/>, document.getElementById('digitalWallet')
+    <App/>, document.getElementById('digitalWallet')
 );
