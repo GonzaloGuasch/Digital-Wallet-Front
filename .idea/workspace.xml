@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="7bff93a6-8cd2-48dc-8f72-c349f4eadb7c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
@@ -8,6 +9,9 @@
       <change beforePath="$PROJECT_DIR$/src/css/UnMovimiento.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/UnMovimiento.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/Movimiento.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Movimiento.js" afterDir="false" />
     </list>
+=======
+    <list default="true" id="7bff93a6-8cd2-48dc-8f72-c349f4eadb7c" name="Default Changelist" comment="" />
+>>>>>>> 87db2865dc7383ce77ef04c21585ccb942c6ee9a
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -122,7 +126,12 @@
       <workItem from="1572639961627" duration="1453000" />
       <workItem from="1572721880954" duration="8402000" />
       <workItem from="1572828875896" duration="12327000" />
+<<<<<<< HEAD
       <workItem from="1573679802218" duration="872000" />
+=======
+      <workItem from="1573492355724" duration="3015000" />
+      <workItem from="1573496005574" duration="14403000" />
+>>>>>>> 87db2865dc7383ce77ef04c21585ccb942c6ee9a
     </task>
     <task id="LOCAL-00001" summary="Agrego campos para mostrar datos del perfil.">
       <created>1572558989505</created>
@@ -131,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572558989505</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Profile view con botones de save y go back. Campos lastname y firstname son editables.">
+      <created>1573680305343</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1573680305343</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,8 +181,29 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Agrego campos para mostrar datos del perfil." />
+<<<<<<< HEAD
     <option name="LAST_COMMIT_MESSAGE" value="Agrego campos para mostrar datos del perfil." />
+=======
+    <MESSAGE value="Profile view con botones de save y go back. Campos lastname y firstname son editables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile view con botones de save y go back. Campos lastname y firstname son editables." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/js/ProfileView.js</url>
+          <line>83</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+>>>>>>> 87db2865dc7383ce77ef04c21585ccb942c6ee9a
   </component>
   <component name="masterDetails">
     <states>
