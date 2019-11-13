@@ -3,7 +3,9 @@ import '../css/App.css';
 import {BrowserRouter, Route, Switch,} from 'react-router-dom';
 import ProfileView from "./ProfileView";
 import Login from "./Login";
-import CashIn from './CashIn'
+import CashIn from './CashIn';
+import Transfer from "./Transfer";
+import NavBar from "./NavBar";
 
 class App extends Component {
 

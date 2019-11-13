@@ -74,8 +74,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -236,6 +236,8 @@
       <workItem from="1572639961627" duration="1453000" />
       <workItem from="1572721880954" duration="8402000" />
       <workItem from="1572828875896" duration="12327000" />
+      <workItem from="1573492355724" duration="3015000" />
+      <workItem from="1573496005574" duration="14403000" />
     </task>
     <task id="LOCAL-00001" summary="Agrego campos para mostrar datos del perfil.">
       <created>1572558989505</created>

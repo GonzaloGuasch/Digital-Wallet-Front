@@ -1,5 +1,5 @@
 import React from 'react';
-import './Transfer.css';
+import '../css/Transfer.css';
 import {crearTransferencia} from "./api";
 
 
@@ -16,21 +16,27 @@ class Transfer extends React.Component{
         this.seatleCVU = this.seatleCVU.bind(this);
         this.goBack = this.goBack.bind(this);
         this.handleError = this.handleError.bind(this);
+        this.handleRes = this.handleRes.bind(this);
     }
     checkTransferencia(){
         const amount = this.state.amount;
         const fromCVU = this.props.user.toString();
         const toCVU = this.state.cvu;
         crearTransferencia({
-            fromCVU,
-            toCVU,
-            amount
-        }).catch(this.handleError)};
+            fromCVU: fromCVU,
+            toCVU: toCVU,
+            amount: amount
+        })  .then(res => this.handleRes(res))
+            .catch(this.handleError)};
 
+    handleRes(res){
+        JSON.parse(res)
+        console.log(res)
+    }
     handleError = (error) =>{
-        console.log(error.response);
+        const errorMessage = JSON.parse(error.response.data);
         this.setState({
-            errorMessage: error.response.statusText
+            errorMessage: errorMessage.message
         })
     }
 
