@@ -39,9 +39,20 @@ export default class Movimientos extends React.Component {
         const res = saldoDe({cvu: cvu});
     }
 
-    asd() {
+    redirectToTransaction() {
         let history = useHistory();
-        history.push("/lalala")
+        history.push("/transfer")
+    }
+    redirectToCashIn() {
+        let history = useHistory();
+        history.push("/cashIn")
+    }
+    redirectToProfile() {
+
+        localStorage.setItem('amount', this.state.amount)
+
+        let history = useHistory();
+        history.push("/profile")
     }
 
     render(){
@@ -58,9 +69,9 @@ export default class Movimientos extends React.Component {
                         {this.state.saldo}
                     </div>
                     <div className="Panel-Container">
-                        <button onClick={this.asd}>T</button>
-                        <button className="center-buttom">C</button>
-                        <button>P</button>
+                        <button onClick={this.redirectToTransaction}>T</button>
+                        <button className="center-buttom" onClick={this.redirectToCashIn}>C</button>
+                        <button onClick={this.redirectToProfile}>P</button>
                     </div>
 
                 </div>
