@@ -20,6 +20,8 @@ class Router extends React.Component{
                      <Route exact path="/profile" component={ProfileView}/>
                      <Route exact path="/movimientos" component={Movimientos}/>
                      <Route path="*" component={Login}/>
+                     <Route exact path="/transfer" component={Transfer}/>
+                     <Route exact path="/cashIn" component={Transfer}/>
                  </Switch>
              </BrowserRouter>
          </div>

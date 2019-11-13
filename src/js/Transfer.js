@@ -47,7 +47,7 @@ class Transfer extends React.Component{
         this.setState({cvu: event.target.value})
     }
     goBack(){
-        this.props.history.pop()
+        this.props.history.push('/movimientos')
     }
 
     render(){

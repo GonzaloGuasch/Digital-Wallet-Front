@@ -1,28 +1,31 @@
 import React from 'react'
 import '../css/Movientos.css'
 import Movimiento from './Movimiento.js'
-import {movimientosDeCVU, saldoDe} from "./api";
-import {useHistory} from "react-router-dom";
+import {movimientosDeCVU} from "./api";
+import {saldoDe} from "./api";
 
 export default class Movimientos extends React.Component {
     constructor(props){
         super(props);
+
         this.state = {
-            cvu: props.user,
-            movientos: [],
+            cvu: localStorage.getItem('cvu'),
+            movimientos: [],
             saldo: ''
         };
         this.amountOfCVU = this.amountOfCVU.bind(this);
         this.setearDinero = this.setearDinero.bind(this);
-        this.asd = this.asd.bind(this);
+        this.redirectToCashIn = this.redirectToCashIn.bind(this);
+        this.redirectToLog = this.redirectToLog.bind(this);
+        this.redirectToProfile = this.redirectToProfile.bind(this);
+        this.redirectToTransaction = this.redirectToTransaction.bind(this);
     }
 
     componentDidMount() {
         const cvu = this.state.cvu;
         movimientosDeCVU({cvu: cvu}).then(res =>
         {
-            const movimientos = JSON.parse(res);
-            this.setState({movientos: movimientos.movimientos});
+            this.setState({movimientos: res});
         });
         saldoDe({cvu: cvu}).then(res => this.setearDinero(res))
 
@@ -31,19 +34,30 @@ export default class Movimientos extends React.Component {
         const dinero = JSON.parse(res);
         this.setState({
             saldo: dinero.balance
-        });
+        })
     }
     amountOfCVU(){
         const cvu = this.state.cvu;
         const res = saldoDe({cvu: cvu});
     }
-    asd() {
-        let history = useHistory();
-        history.push("/lalala")
+
+    redirectToTransaction() {
+        this.props.history.push("/transfer")
+    }
+    redirectToCashIn() {
+        this.props.history.push("/cashIn")
+    }
+
+    redirectToProfile() {
+        localStorage.setItem('amount', this.state.amount)
+        this.props.history.push("/profile")
+    }
+    redirectToLog() {
+        this.props.history.push("/login")
     }
 
     render(){
-        const misMovimientos = this.state.movientos.map(unMoviento => {
+        const misMovimientos = this.state.movimientos.map(unMoviento => {
             return(
                 <Movimiento movimiento= {unMoviento} />
             )});
@@ -56,9 +70,9 @@ export default class Movimientos extends React.Component {
                         {this.state.saldo}
                     </div>
                     <div className="Panel-Container">
-                        <button onClick={this.asd}>T</button>
-                        <button className="center-buttom">C</button>
-                        <button>P</button>
+                        <button onClick={this.redirectToTransaction}>T</button>
+                        <button className="center-buttom" onClick={this.redirectToCashIn}>C</button>
+                        <button onClick={this.redirectToProfile}>P</button>
                     </div>
 
                 </div>
@@ -68,7 +82,7 @@ export default class Movimientos extends React.Component {
                         {misMovimientos}
                     </table>
                 </div>
-                <button class="button-container" onClick={this.back}> Sign out</button>
+                <button class="button-container" onClick={this.redirectToLog}> Sing out </button>
             </div>
         )};
 
