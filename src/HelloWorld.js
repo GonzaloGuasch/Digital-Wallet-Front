@@ -9,6 +9,7 @@ class HelloWorld extends React.Component{
             <div>
 
                 <h1>HELLO WORLD</h1>
+                <h1>{localStorage.getItem('cvu')}</h1>
 
             </div>
         )
