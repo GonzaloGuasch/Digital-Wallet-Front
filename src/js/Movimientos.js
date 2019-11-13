@@ -10,8 +10,8 @@ export default class Movimientos extends React.Component {
         super(props);
 
         this.state = {
-            cvu: props.user,
-            movientos: [],
+            cvu: localStorage.getItem('cvu'),
+            movimientos: [],
             saldo: ''
         };
         this.amountOfCVU = this.amountOfCVU.bind(this);
@@ -23,15 +23,13 @@ export default class Movimientos extends React.Component {
         const cvu = this.state.cvu;
         movimientosDeCVU({cvu: cvu}).then(res =>
         {
-            const movimientos = JSON.parse(res);
-            this.setState({movientos: movimientos.movimientos});
+            this.setState({movimientos: res});
         });
         saldoDe({cvu: cvu}).then(res => this.setearDinero(res))
 
     }
     setearDinero(res){
         const dinero = JSON.parse(res);
-        console.log(dinero)
         this.setState({
             saldo: dinero.balance
         })
@@ -41,17 +39,13 @@ export default class Movimientos extends React.Component {
         const res = saldoDe({cvu: cvu});
     }
 
-    back(){
-
-    }
-
     asd() {
         let history = useHistory();
         history.push("/lalala")
     }
 
     render(){
-        const misMovimientos = this.state.movientos.map(unMoviento => {
+        const misMovimientos = this.state.movimientos.map(unMoviento => {
             return(
                 <Movimiento movimiento= {unMoviento} />
             )});
