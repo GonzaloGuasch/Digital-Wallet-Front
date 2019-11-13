@@ -14,6 +14,7 @@
 }
 #money{
     color: #038c7f;
+    width: auto;
 }
 #Bottom-border{
     border-bottom: 1px solid;
@@ -23,7 +24,16 @@
     width: 900px;
 }
 .children{
-    width: 30%;
+    width: auto;
     margin-bottom: 12px;
+    margin-right: 110px;
+    font-size:  22px;
+}
+
+.description{
+    width: auto;
+    margin-right: 110px;
+    margin-bottom: 12px;
+    font-size:  22px;
 }
 
