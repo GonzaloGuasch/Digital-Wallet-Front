@@ -20,7 +20,7 @@ class Transfer extends React.Component{
     }
     checkTransferencia(){
         const amount = this.state.amount;
-        const fromCVU = this.props.user.toString();
+        const fromCVU = localStorage.getItem('cvu');
         const toCVU = this.state.cvu;
         crearTransferencia({
             fromCVU: fromCVU,
@@ -34,7 +34,12 @@ class Transfer extends React.Component{
         console.log(res)
     }
     handleError = (error) =>{
-        const errorMessage = JSON.parse(error.response.data);
+        let errorMessage = ''
+        if(error.response.data !== undefined) {
+            errorMessage = JSON.parse(error.response.data);
+        }else{
+            errorMessage = "Llename los campos bb"
+        }
         this.setState({
             errorMessage: errorMessage.message
         })

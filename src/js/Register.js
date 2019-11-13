@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/Register.css'
 import axios from "axios"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
 
 
 class Register extends React.Component{
@@ -160,7 +159,7 @@ class Register extends React.Component{
                     <br>
                     </br>
                     <div className="errorInput">
-                        <a className="valid-input">{this.state.error}</a>
+                        <label className="valid-input">{this.state.error}</label>
                     </div>
                     <button type="button"
                             className="btnConfirm"
