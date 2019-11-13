@@ -33,7 +33,7 @@ class Login extends React.Component{
         this.setState({password: event.target.value})
     }
     redirectToNextPage = () =>{
-        this.props.history.push('/hello')
+        this.props.history.push('/movimientos')
     }
     redirectToRegister = () => {
         this.props.history.push('/register')
