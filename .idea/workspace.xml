@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bff93a6-8cd2-48dc-8f72-c349f4eadb7c" name="Default Changelist" comment="" />
+    <list default="true" id="7bff93a6-8cd2-48dc-8f72-c349f4eadb7c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/Movimientos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/Movimientos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/ProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/ProfileView.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +124,7 @@
       <workItem from="1572828875896" duration="12327000" />
       <workItem from="1573492355724" duration="3015000" />
       <workItem from="1573496005574" duration="14403000" />
+      <workItem from="1573681563414" duration="5243000" />
     </task>
     <task id="LOCAL-00001" summary="Agrego campos para mostrar datos del perfil.">
       <created>1572558989505</created>
@@ -174,18 +181,6 @@
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/js/ProfileView.js</url>
-          <line>83</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

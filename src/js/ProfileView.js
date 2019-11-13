@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/ProfileView.css';
-import {datosDeUser, modificarApellidoDeUser, modificarNombreDeUser} from "./api";
+import {datosDeUser, modificarApellidoDeUser, modificarNombreDeUser, saldoDe} from "./api";
 
 class ProfileView extends React.Component {
 
@@ -12,18 +12,23 @@ class ProfileView extends React.Component {
             email: '',
             cvu: '',
             amount: 0,
+            error: localStorage.getItem("profileError") || ''
         };
         this.handleEmail = this.handleEmail.bind(this);
         this.handleFirstname = this.handleFirstname.bind(this);
-        this.handleLastname = this.handleLastname.bind(this)
+        this.handleLastname = this.handleLastname.bind(this);
+        this.setearDinero = this.setearDinero.bind(this);
     }
 
-    redirectToMovimientos = () => {
-        this.props.history.push('/movimientos')
-    };
-    guardarCambios = () => {
+    guardarCambiosYRedirectToMovimientos = () => {
         modificarNombreDeUser({firstname: this.state.firstname, cvu: this.state.cvu});
-        modificarApellidoDeUser({lastname: this.state.lastname, cvu: this.state.cvu})
+        modificarApellidoDeUser({lastname: this.state.lastname, cvu: this.state.cvu});
+        if (this.state.lastname.trim().length < 1 || this.state.firstname.trim().length < 1) {
+            localStorage.setItem('profileError', "Error: Neither name nor last name can be empty");
+            return;
+        }
+        localStorage.setItem('profileError', '');
+        this.props.history.push('/movimientos');
     };
 
     render() {
@@ -31,7 +36,9 @@ class ProfileView extends React.Component {
             <div className="fields">
                 <div className={"userbar"}>
                     <i className="user circle icon usericon"></i></div>
-
+                <div className="errorInput">
+                    <a className="valid-input">{this.state.error}</a>
+                </div>
                 <form className="formDW">
                     <h5 className="titleInput">First name</h5>
                     <input type="text"
@@ -64,16 +71,9 @@ class ProfileView extends React.Component {
                     <button type="submit"
                             className="btnDenied"
                             value="Submit"
-                            onClick={this.redirectToMovimientos}
+                            onClick={this.guardarCambiosYRedirectToMovimientos}
                     >
-                        Go Back
-                    </button>
-                    <button type="submit"
-                            className="btnDenied"
-                            value="Submit"
-                            onClick={this.guardarCambios}
-                    >
-                        Save
+                        Save & Go Back
                     </button>
                 </form>
             </div>
@@ -87,10 +87,9 @@ class ProfileView extends React.Component {
                 cvu: cvu,
                 firstname: res.firstName,
                 lastname: res.lastName,
-                email: res.email,
-                amount: 0
+                email: res.email
             });
-        });
+        }).then(saldoDe({cvu: cvu}).then(res => this.setearDinero(res)))
     }
 
     handleEmail(event) {
@@ -103,6 +102,13 @@ class ProfileView extends React.Component {
 
     handleLastname(event) {
         this.setState({lastname: event.target.value})
+    }
+
+    setearDinero(res) {
+        const amount = JSON.parse(res);
+        this.setState({
+            amount: amount.balance
+        })
     }
 }
 

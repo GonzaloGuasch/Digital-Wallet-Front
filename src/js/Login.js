@@ -2,51 +2,52 @@ import React from 'react';
 import '../css/Login.css'
 import axios from "axios"
 import '../css/index.css'
-import Register from "./Register";
 
 
-class Login extends React.Component{
+class Login extends React.Component {
 
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state ={
+        this.state = {
             email: '',
             password: '',
             error: '',
         };
         this.handleEmail = this.handleEmail.bind(this);
-        this.handlePassword = this.handlePassword.bind(this)
-        this.logUser = this.logUser.bind(this)
-        this.checkInput = this.checkInput.bind(this)
-        this.redirectToNextPage = this.redirectToNextPage.bind(this)
-        this.redirectToRegister = this.redirectToRegister.bind(this)
-        this.handleLog = this.handleLog.bind(this)
+        this.handlePassword = this.handlePassword.bind(this);
+        this.logUser = this.logUser.bind(this);
+        this.checkInput = this.checkInput.bind(this);
+        this.redirectToNextPage = this.redirectToNextPage.bind(this);
+        this.redirectToRegister = this.redirectToRegister.bind(this);
+        this.handleLog = this.handleLog.bind(this);
         this.handleErrorLog = this.handleErrorLog.bind(this)
     }
 
-    handleEmail(event){
+    handleEmail(event) {
         this.setState({email: event.target.value})
     }
-    handlePassword(event){
+
+    handlePassword(event) {
         this.setState({password: event.target.value})
     }
-    redirectToNextPage = () =>{
+
+    redirectToNextPage = () => {
         this.props.history.push('/movimientos')
-    }
+    };
     redirectToRegister = () => {
         this.props.history.push('/register')
     };
 
     checkInput = () => {
-        this.setState({error: ""})
+        this.setState({error: ""});
         if (this.state.email.trim().length < 1 || this.state.password.trim().length < 1) {
-            this.setState({ error: "Campos vacios..." });
+            this.setState({error: "Campos vacios..."});
             return;
         }
         if (!this.state.email.trim().includes("@")) {
-            this.setState({ error: "Usuario mal formado..." });
+            this.setState({error: "Usuario mal formado..."});
             return;
         }
         this.logUser()
@@ -72,12 +73,12 @@ class Login extends React.Component{
     };
     handleErrorLog = (error) => {
         if (error.response && error.response.status === 401) {
-            this.setState({error:"Mal usuario o contraseña..."})
-            return;
+            this.setState({error: "Mal usuario o contraseña..."});
+
+        } else {
+            this.setState({error: "Estamos teniendo problemas..."});
+
         }
-        else {
-            this.setState({error:"Estamos teniendo problemas..."});
-            return;}
     };
 
     render() {

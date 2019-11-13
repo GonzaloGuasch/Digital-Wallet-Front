@@ -1,8 +1,7 @@
 import React from 'react'
 import '../css/Movientos.css'
 import Movimiento from './Movimiento.js'
-import {movimientosDeCVU} from "./api";
-import {saldoDe} from "./api";
+import {movimientosDeCVU, saldoDe} from "./api";
 
 export default class Movimientos extends React.Component {
     constructor(props){
@@ -49,7 +48,6 @@ export default class Movimientos extends React.Component {
     }
 
     redirectToProfile() {
-        localStorage.setItem('amount', this.state.amount)
         this.props.history.push("/profile")
     }
     redirectToLog() {
@@ -57,9 +55,9 @@ export default class Movimientos extends React.Component {
     }
 
     render(){
-        const misMovimientos = this.state.movimientos.map(unMoviento => {
+        const movimientos = this.state.movimientos.map(movimiento => {
             return(
-                <Movimiento movimiento= {unMoviento} />
+                <Movimiento movimiento={movimiento}/>
             )});
 
         return(
@@ -79,10 +77,10 @@ export default class Movimientos extends React.Component {
                 <div className="Historial">Historial</div>
                 <div className="Historial-Cointeiner">
                     <table className='Table-Cointeiner' width="100%" border="0">
-                        {misMovimientos}
+                        {movimientos}
                     </table>
                 </div>
-                <button class="button-container" onClick={this.redirectToLog}> Sing out </button>
+                <button class="button-container" onClick={this.redirectToLog}> Sign out</button>
             </div>
         )};
 
