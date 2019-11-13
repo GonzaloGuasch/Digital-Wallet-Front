@@ -1,28 +1,137 @@
 import React from 'react';
 import '../css/Login.css'
-import 'bootstrap/dist/css/bootstrap.css'
+import axios from "axios"
+import '../css/index.css'
+import Register from "./Register";
+
 
 class Login extends React.Component{
-    render() {
-        return(
-        <div className="DivLog">
-            <form class="form-group">
-                <h3>Nombre de Usuario</h3>
-                <input type="text" className="form-control" id="uname" placeholder="Username" name="uname"
-                       required></input> <br></br>
 
-                <h3>Contraseña</h3>
-                    <input type="password" className="form-control" id="pwd" placeholder="Password" name="pswd"
-                           required></input> <br></br><br></br>
-                <button type="button" className="btn btn-primary btn-block">Logueame!</button>
+
+    constructor(props){
+        super(props);
+
+        this.state ={
+            email: '',
+            password: '',
+            error: '',
+        };
+        this.handleEmail = this.handleEmail.bind(this);
+        this.handlePassword = this.handlePassword.bind(this)
+        this.logUser = this.logUser.bind(this)
+        this.checkInput = this.checkInput.bind(this)
+        this.redirectToNextPage = this.redirectToNextPage.bind(this)
+        this.redirectToRegister = this.redirectToRegister.bind(this)
+        this.handleLog = this.handleLog.bind(this)
+        this.handleErrorLog = this.handleErrorLog.bind(this)
+    }
+
+    handleEmail(event){
+        this.setState({email: event.target.value})
+    }
+    handlePassword(event){
+        this.setState({password: event.target.value})
+    }
+    redirectToNextPage = () =>{
+        this.props.history.push('/hello')
+    }
+    redirectToRegister = () => {
+        this.props.history.push('/register')
+    };
+
+    checkInput = () => {
+        this.setState({error: ""})
+        if (this.state.email.trim().length < 1 || this.state.password.trim().length < 1) {
+            this.setState({ error: "Campos vacios..." });
+            return;
+        }
+        if (!this.state.email.trim().includes("@")) {
+            this.setState({ error: "Usuario mal formado..." });
+            return;
+        }
+        this.logUser()
+    };
+
+    logUser = () => {
+        axios.post("http://localhost:7000/login", {
+            email: this.state.email,
+            password: this.state.password
+        })
+            .then(this.handleLog)
+            .catch(this.handleErrorLog)
+    };
+
+    handleLog = (res) => {
+
+        const cvuParse = JSON.parse(res.data);
+
+        localStorage.setItem('cvu', cvuParse.cvu);
+        console.log(localStorage.getItem('cvu'));
+
+        this.redirectToNextPage()
+    };
+    handleErrorLog = (error) => {
+        if (error.response && error.response.status === 401) {
+            this.setState({error:"Mal usuario o contraseña..."})
+            return;
+        }
+        else {
+            this.setState({error:"Estamos teniendo problemas..."});
+            return;}
+    };
+
+    render() {
+
+        return(
+        <div className="log">
+            <div className="header-Log">
+                <h1>DigitalWallet</h1>
+            </div>
+            <form className="formDW">
+                <h5 className="titleInput">Nombre de Usuario</h5>
+                <input type="text"
+                       className="inputTextForm"
+                       placeholder="Write your username"
+                       value={this.state.email}
+                       onChange={this.handleEmail}
+                       >
+                </input>
+                <br>
+                </br>
+
+                <h5 className="titleInput">Contraseña</h5>
+                    <input type="password"
+                           className="inputTextForm"
+                           placeholder="Write your password"
+                           value={this.state.password}
+                           onChange={this.handlePassword}
+                           >
+                    </input>
+                <br>
+                </br>
+                <div className="errorInput">
+                    <a className="valid-input">{this.state.error}</a>
+                </div>
+
+                <button type="button"
+                        className="btnConfirm"
+                        onClick={this.checkInput}>
+                    Login
+                </button>
                 <br/>
 
-                <button type="button" className="btn btn-link">Register</button>
+                <button type="submit"
+                        className="btnDenied"
+                        value="Submit"
+                        onClick={this.redirectToRegister}
+                >
+                    Register
+                </button>
             </form>
 
         </div>
         )};
-    
-}
 
+
+}
     export default Login

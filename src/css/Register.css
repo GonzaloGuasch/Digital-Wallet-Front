@@ -1,6 +1,6 @@
-.log {
+.register {
     width: 500px;
-    height: 350px;
+    height: 550px;
     margin: auto;
     margin-top: 50px;
 
@@ -9,7 +9,11 @@
     -moz-box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
     box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
 }
-.header-Log{
-
+.header-Reg{
     text-align: center;
+}
+h5{
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 3px;
 }

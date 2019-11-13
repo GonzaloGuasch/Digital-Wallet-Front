@@ -1,0 +1,29 @@
+import React from 'react';
+import Register from "./js/Register";
+import {BrowserRouter, Route, Switch,} from 'react-router-dom';
+import HelloWorld from "./HelloWorld";
+import CashIn from "./js/CashIn";
+import ProfileView from "./js/ProfileView";
+import Login from "./js/Login";
+import Movimientos from "./js/Movimientos"
+
+class Router extends React.Component{
+ render() {
+     return(
+         <div className='digital-wallet'>
+             <BrowserRouter>
+                 <Switch>
+                     <Route exact path="/" component={Login}/>
+                     <Route exact path="/register" component={Register}/>
+                     <Route exact path="/hello" component={HelloWorld}/>
+                     <Route exact path="/cashin" component={CashIn}/>
+                     <Route exact path="/profile" component={ProfileView}/>
+                     <Route exact path="/movimientos" component={Movimientos}/>
+                 </Switch>
+             </BrowserRouter>
+         </div>
+     )
+ }
+}
+
+export default Router;
