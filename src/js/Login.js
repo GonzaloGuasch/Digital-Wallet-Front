@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/Login.css'
 import axios from "axios"
 import '../css/index.css'
-import Register from "./Register";
 
 
 class Login extends React.Component{
@@ -110,7 +109,7 @@ class Login extends React.Component{
                 <br>
                 </br>
                 <div className="errorInput">
-                    <a className="valid-input">{this.state.error}</a>
+                    <label className="valid-input">{this.state.error}</label>
                 </div>
 
                 <button type="button"

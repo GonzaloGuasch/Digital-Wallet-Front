@@ -13,7 +13,6 @@ export default class Movimientos extends React.Component {
             movimientos: [],
             saldo: ''
         };
-        this.amountOfCVU = this.amountOfCVU.bind(this);
         this.setearDinero = this.setearDinero.bind(this);
         this.redirectToCashIn = this.redirectToCashIn.bind(this);
         this.redirectToLog = this.redirectToLog.bind(this);
@@ -35,10 +34,6 @@ export default class Movimientos extends React.Component {
         this.setState({
             saldo: dinero.balance
         })
-    }
-    amountOfCVU(){
-        const cvu = this.state.cvu;
-        const res = saldoDe({cvu: cvu});
     }
 
     redirectToTransaction() {

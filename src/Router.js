@@ -6,6 +6,8 @@ import CashIn from "./js/CashIn";
 import ProfileView from "./js/ProfileView";
 import Login from "./js/Login";
 import Movimientos from "./js/Movimientos"
+import Transfer from "./js/Transfer";
+
 
 class Router extends React.Component{
  render() {
@@ -19,9 +21,8 @@ class Router extends React.Component{
                      <Route exact path="/cashin" component={CashIn}/>
                      <Route exact path="/profile" component={ProfileView}/>
                      <Route exact path="/movimientos" component={Movimientos}/>
-                     <Route path="*" component={Login}/>
                      <Route exact path="/transfer" component={Transfer}/>
-                     <Route exact path="/cashIn" component={Transfer}/>
+                     <Route path="*" component={Login}/>
                  </Switch>
              </BrowserRouter>
          </div>

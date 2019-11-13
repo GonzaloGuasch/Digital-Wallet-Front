@@ -27,6 +27,7 @@ export default class CashIn extends React.Component {
     this.handleSecurityCodeChange = this.handleSecurityCodeChange.bind(this)
     this.handleEndDateChange = this.handleEndDateChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
   handleAmountChange(event) {
     this.setState({amount: event.target.value})
@@ -45,6 +46,9 @@ export default class CashIn extends React.Component {
   }
   handleEndDateChange(date) {
     this.setState({endDate: date})
+  }
+  goBack(){
+    this.props.history.push('/movimientos')
   }
   async handleSubmit() {
     const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY')
@@ -109,7 +113,7 @@ export default class CashIn extends React.Component {
             </div>
           </div>
           <div className="buttons-container">
-            <button className="button cancel">Cancel</button>
+            <button className="button cancel" onClick={this.goBack}>Cancel</button>
             <button className="button confirm" onClick={this.handleSubmit}>Confirm</button>
           </div>
         </div>
