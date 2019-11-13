@@ -16,7 +16,10 @@ export default class Movimientos extends React.Component {
         };
         this.amountOfCVU = this.amountOfCVU.bind(this);
         this.setearDinero = this.setearDinero.bind(this);
-        this.asd = this.asd.bind(this);
+        this.redirectToCashIn = this.redirectToCashIn.bind(this);
+        this.redirectToLog = this.redirectToLog.bind(this);
+        this.redirectToProfile = this.redirectToProfile.bind(this);
+        this.redirectToTransaction = this.redirectToTransaction.bind(this);
     }
 
     componentDidMount() {
@@ -40,19 +43,18 @@ export default class Movimientos extends React.Component {
     }
 
     redirectToTransaction() {
-        let history = useHistory();
-        history.push("/transfer")
+        this.props.history.push("/transfer")
     }
     redirectToCashIn() {
-        let history = useHistory();
-        history.push("/cashIn")
+        this.props.history.push("/cashIn")
     }
+
     redirectToProfile() {
-
         localStorage.setItem('amount', this.state.amount)
-
-        let history = useHistory();
-        history.push("/profile")
+        this.props.history.push("/profile")
+    }
+    redirectToLog() {
+        this.props.history.push("/login")
     }
 
     render(){
@@ -81,7 +83,7 @@ export default class Movimientos extends React.Component {
                         {misMovimientos}
                     </table>
                 </div>
-                <button class="button-container" onClick={this.back}> Sing out </button>
+                <button class="button-container" onClick={this.redirectToLog}> Sing out </button>
             </div>
         )};
 
