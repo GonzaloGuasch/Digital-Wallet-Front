@@ -3,7 +3,6 @@ import '../css/Movientos.css'
 import Movimiento from './Movimiento.js'
 import {movimientosDeCVU} from "./api";
 import {saldoDe} from "./api";
-import { useHistory } from "react-router-dom";
 
 export default class Movimientos extends React.Component {
     constructor(props){
