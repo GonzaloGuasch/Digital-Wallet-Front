@@ -67,8 +67,12 @@ export default class CashIn extends React.Component {
       this.setState({ error: "Numero de tarjeta mal formado..." });
       return;
     }
-    if (parseInt(this.state.idCard) === "number") {
-      this.setState({error: "Ingrese un número en el id card"});
+    if (Number.isNaN(parseInt(this.state.cardNumber)) || (Number.isNaN(parseInt(this.state.securityCode)))) {
+      this.setState({error: "Verifique que los campos de su tarjeta sean correctos"});
+      return;
+    }
+    if (!this.state.endDate) {
+      this.setState({error: "Por favor elija una fecha"})
       return;
     }
     this.handleSubmit()
@@ -147,6 +151,7 @@ export default class CashIn extends React.Component {
               />
             </div>
           </div>
+          <label className="errorValidCash">{this.state.error}</label>
           <div className="buttons-container">
             <button className="button cancel" onClick={this.goBack}>Cancel</button>
             <button className="button confirm" onClick={this.checkInput}>Confirm</button>
