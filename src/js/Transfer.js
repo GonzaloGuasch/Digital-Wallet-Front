@@ -27,22 +27,16 @@ class Transfer extends React.Component{
             toCVU: toCVU,
             amount: amount
         })  .then(res => this.handleRes(res))
-            .catch(this.handleError)};
+            .catch(error =>this.handleError(error))};
 
     handleRes(res){
-        JSON.parse(res);
-        console.log(res)
+        console.log(res);
+        this.props.history.push('/movimientos')
     }
     handleError = (error) =>{
-        let errorMessage = '';
-        if(error.response.data !== undefined) {
-            errorMessage = JSON.parse(error.response.data);
-        }else{
-            errorMessage = "Complete los campos"
-        }
         this.setState({
-            errorMessage: errorMessage.message
-        })
+          errorMessage: 'CVU o monto no valido'
+     })
     };
 
     setAmount(event) {
