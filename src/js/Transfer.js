@@ -40,7 +40,7 @@ class Transfer extends React.Component{
             fromCVU: fromCVU,
             toCVU: toCVU,
             amount: amount
-        })  .then(res => this.handleRes(res))
+        }).then(res => this.handleRes(res))
             .catch(error =>this.handleError(error))};
 
     handleRes(res){

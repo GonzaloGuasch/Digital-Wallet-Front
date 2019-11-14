@@ -20,7 +20,6 @@ export default class Movimientos extends React.Component {
     }
 
     assertLogIn() {
-        console.log(localStorage.getItem('cvu'));
         if (localStorage.getItem('cvu') === '')
             this.props.history.push('/login')
     }
@@ -56,9 +55,9 @@ export default class Movimientos extends React.Component {
     }
 
     render(){
-        const movimientos = this.state.movimientos.map(movimiento => {
+        const movimientos = this.state.movimientos.map((movimiento, i) => {
             return(
-                <Movimiento movimiento={movimiento}/>
+                <Movimiento movimiento={movimiento} key={i}/>
             )});
 
         return(
@@ -77,9 +76,9 @@ export default class Movimientos extends React.Component {
                 </div>
                 <div className="Historial">Historial</div>
                 <div className="Historial-Cointeiner">
-                    <table className='Table-Cointeiner' width="100%" border="0">
+                    <div className='Table-Cointeiner' width="100%" border="0">
                         {movimientos}
-                    </table>
+                    </div>
                 </div>
                 <div className="containerSignOut">
                 <button className="btnDenied" onClick={this.redirectToLog}> Sign out</button>

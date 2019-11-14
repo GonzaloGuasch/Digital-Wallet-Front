@@ -58,17 +58,14 @@ class Register extends React.Component{
             || this.state.idCard.trim().length < 1
         ) {
             this.setState({ error: "Campos vacios..." });
-            console.log(this.state.error);
             return;
         }
         if (!this.state.email.trim().includes("@")) {
             this.setState({ error: "Email mal formado..." });
-            console.log(this.state.error);
             return;
         }
         if (typeof this.state.idCard === typeof String) {
             this.setState({error: "Ingrese un número en el id card"});
-            console.log(this.state.error);
             return;
         }
         this.registerUser()
@@ -84,7 +81,6 @@ class Register extends React.Component{
 
     handleLog = (res) => {
         localStorage.setItem('cvu', res.data.cvu);
-        console.log(localStorage.getItem('cvu'));
         this.handleReg()
     };
 
