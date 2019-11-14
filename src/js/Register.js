@@ -64,7 +64,7 @@ class Register extends React.Component{
             this.setState({ error: "Email mal formado..." });
             return;
         }
-        if (parseInt(this.state.idCard) === "number") {
+        if (Number.isNaN(parseInt(this.state.idCard))) {
             this.setState({error: "Ingrese un número en el id card"});
             return;
         }
@@ -109,7 +109,6 @@ class Register extends React.Component{
         return(
             <div className="register">
                 <div className="header-Reg">
-                    <FontAwesomeIcon icon={"faCreditCard"} className="icon" />
                     <h1>Digital Wallet</h1>
                 </div>
 
