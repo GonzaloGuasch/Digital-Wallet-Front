@@ -73,8 +73,7 @@ class Login extends React.Component {
     };
     handleErrorLog = (error) => {
         if (error.response && error.response.status === 401) {
-            this.setState({error: "Mal usuario o contraseña..."});
-
+            this.setState({error: "Usuario o contraseña incorrectos..."});
         } else {
             this.setState({error: "Estamos teniendo problemas..."});
 

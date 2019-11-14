@@ -1,8 +1,8 @@
 import React from 'react';
 import '../css/CashIn.css'
 import 'pretty-checkbox/dist/pretty-checkbox.min.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCreditCard} from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faCreditCard} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -10,7 +10,7 @@ import moment from 'moment'
 
 export default class CashIn extends React.Component {
   constructor(props) {
-    super(props)
+      super(props);
     this.state = {
       fromCVU: '',
       debitCard: 'false',
@@ -19,14 +19,14 @@ export default class CashIn extends React.Component {
       fullName: '',
       endDate: '',
       securityCode: '',
-    }
-    this.handleAmountChange = this.handleAmountChange.bind(this)
-    this.handlePaymentChange = this.handlePaymentChange.bind(this)
-    this.handleCardNumberChange = this.handleCardNumberChange.bind(this)
-    this.handleFullNameChange = this.handleFullNameChange.bind(this)
-    this.handleSecurityCodeChange = this.handleSecurityCodeChange.bind(this)
-    this.handleEndDateChange = this.handleEndDateChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    };
+      this.handleAmountChange = this.handleAmountChange.bind(this);
+      this.handlePaymentChange = this.handlePaymentChange.bind(this);
+      this.handleCardNumberChange = this.handleCardNumberChange.bind(this);
+      this.handleFullNameChange = this.handleFullNameChange.bind(this);
+      this.handleSecurityCodeChange = this.handleSecurityCodeChange.bind(this);
+      this.handleEndDateChange = this.handleEndDateChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
     this.goBack = this.goBack.bind(this)
   }
   handleAmountChange(event) {
@@ -51,11 +51,11 @@ export default class CashIn extends React.Component {
     this.props.history.push('/movimientos')
   }
   async handleSubmit() {
-    const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY')
+      const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY');
     axios.post('http://localhost:7000/cashin', Object.assign(this.state, {endDate: dateWithSlashes})).then((res) => console.log(res))
   }
   assertLogIn() {
-    if (localStorage.getItem('cvu') == '')
+      if (localStorage.getItem('cvu') === '')
       this.props.history.push('/login')
   }
 

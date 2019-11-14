@@ -65,7 +65,6 @@ class Register extends React.Component{
             console.log(this.state.error);
             return;
         }
-
         this.registerUser()
     };
 
@@ -83,11 +82,12 @@ class Register extends React.Component{
     handleReg = () => {
         this.redirectToNextPage()
     };
-    redirectToNextPage = () =>{
+    redirectToNextPage = () => {
         this.props.history.push('/movimientos')
     };
     handleErrorReg = () => {
             this.setState({error:"Estamos teniendo problemas..."});
+
     };
 
     render() {
