@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Register.css'
 import axios from "axios"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 
 class Register extends React.Component{
@@ -24,7 +24,7 @@ class Register extends React.Component{
         this.redirectToLogin = this.redirectToLogin.bind(this);
         this.checkRegister = this.checkRegister.bind(this);
         this.handleReg = this.handleReg.bind(this);
-        this.registerUser = this.registerUser.bind(this)
+        this.registerUser = this.registerUser.bind(this);
         this.handleErrorReg = this.handleErrorReg.bind(this)
     }
 
@@ -86,11 +86,11 @@ class Register extends React.Component{
         this.redirectToNextPage()
     };
     redirectToNextPage = () =>{
-        this.props.history.push('/hello')
+        this.props.history.push('/movimientos')
     };
     handleErrorReg = () => {
             this.setState({error:"Estamos teniendo problemas..."});
-            return;
+
     };
 
     render() {

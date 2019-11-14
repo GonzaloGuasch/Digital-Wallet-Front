@@ -12,8 +12,8 @@ class Transfer extends React.Component{
             errorMessage: ''
         };
         this.checkTransferencia = this.checkTransferencia.bind(this);
-        this.seatleAmount = this.seatleAmount.bind(this);
-        this.seatleCVU = this.seatleCVU.bind(this);
+        this.setAmount = this.setAmount.bind(this);
+        this.setCVU = this.setCVU.bind(this);
         this.goBack = this.goBack.bind(this);
         this.handleError = this.handleError.bind(this);
         this.handleRes = this.handleRes.bind(this);
@@ -30,25 +30,26 @@ class Transfer extends React.Component{
             .catch(this.handleError)};
 
     handleRes(res){
-        JSON.parse(res)
+        JSON.parse(res);
         console.log(res)
     }
     handleError = (error) =>{
-        let errorMessage = ''
+        let errorMessage = '';
         if(error.response.data !== undefined) {
             errorMessage = JSON.parse(error.response.data);
         }else{
-            errorMessage = "Llename los campos bb"
+            errorMessage = "Complete los campos"
         }
         this.setState({
             errorMessage: errorMessage.message
         })
-    }
+    };
 
-    seatleAmount(event){
+    setAmount(event) {
         this.setState({amount: event.target.value})
     }
-    seatleCVU(event){
+
+    setCVU(event) {
         this.setState({cvu: event.target.value})
     }
     goBack(){
@@ -61,9 +62,9 @@ class Transfer extends React.Component{
                 <div className= "logo"></div>
                 <div className ="Transfer-name"> Transfer</div>
                 <div className ="Amount-CVU-name">CVU</div>
-                <input className="text-box" type="text" value = {this.state.cvu} onChange = {this.seatleCVU} />
+                <input className="text-box" type="text" value={this.state.cvu} onChange={this.setCVU}/>
                 <div className ="Amount-CVU-name">Amount</div>
-                <input className="text-box" type="text"  value = {this.state.amount} onChange = {this.seatleAmount} />
+                <input className="text-box" type="text" value={this.state.amount} onChange={this.setAmount}/>
                 <div className="Button-container">
                     <button className="Accept-button" onClick={this.checkTransferencia}>Confirm</button>
                     <button className="Cancel-button" onClick={this.goBack}>Cancel</button>
