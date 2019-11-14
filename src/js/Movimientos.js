@@ -20,7 +20,6 @@ export default class Movimientos extends React.Component {
     }
 
     assertLogIn() {
-        console.log(localStorage.getItem('cvu'));
         if (localStorage.getItem('cvu') === '')
             this.props.history.push('/login')
     }

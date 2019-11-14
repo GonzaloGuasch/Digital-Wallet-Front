@@ -61,12 +61,12 @@ class Register extends React.Component{
             console.log(this.state.error);
             return;
         }
-        if (!this.state.email.trim().includes("@")) {
+        if (!this.state.email.trim().includes("@") || !this.state.email.trim().includes(".com")) {
             this.setState({ error: "Email mal formado..." });
             console.log(this.state.error);
             return;
         }
-        if (typeof this.state.idCard === typeof String) {
+        if (parseInt(this.state.idCard) === "number") {
             this.setState({error: "Ingrese un número en el id card"});
             console.log(this.state.error);
             return;

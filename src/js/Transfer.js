@@ -30,7 +30,6 @@ class Transfer extends React.Component{
             .catch(error =>this.handleError(error))};
 
     handleRes(res){
-        console.log(res);
         this.props.history.push('/movimientos')
     }
     handleError = (error) =>{
