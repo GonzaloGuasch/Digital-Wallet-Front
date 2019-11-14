@@ -1,6 +1,9 @@
 * {
     font-family: fantasy, serif;
 }
+#digitalWallet, .digital-wallet {
+    height: 100%;
+}
 .formDW{
     font-family: fantasy, serif;
     margin-left: auto;
