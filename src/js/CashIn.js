@@ -58,7 +58,7 @@ export default class CashIn extends React.Component {
         || this.state.cardNumber.trim().length < 1
         || this.state.fullName.trim().length < 1
         || this.state.securityCode.trim().length < 1
-        || this.state.endDate.trim().length < 1
+        || !this.state.endDate
     ) {
       this.setState({ error: "Campos vacios..." });
       return;
@@ -79,8 +79,13 @@ export default class CashIn extends React.Component {
   }
 
   async handleSubmit() {
-      const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY');
-    axios.post('http://localhost:7000/cashin', Object.assign(this.state, {endDate: dateWithSlashes})).then((res) => {
+    console.log(moment(this.state.endDate))
+    console.log(moment(this.state.endDate).format('DD/MM/YYYY'))
+      const endDate = moment(this.state.endDate).format('DD/MM/YYYY');
+    const { fromCVU, amount, cardNumber, debitCard, fullName, securityCode } = this.state
+    axios.post('http://localhost:7000/cashin', {
+      fromCVU, amount, cardNumber, debitCard, fullName, securityCode, endDate
+    }).then((res) => {
       this.goBack()
     })
   }
