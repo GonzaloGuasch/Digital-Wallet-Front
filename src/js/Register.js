@@ -55,6 +55,7 @@ class Register extends React.Component{
             || this.state.firstName.trim().length < 1
             || this.state.lastName.trim().length < 1
             || this.state.idCard.trim().length < 1
+            || typeof this.state.idCard !== "number"
         ) {
             this.setState({ error: "Campos vacios..." });
             console.log(this.state.error);
