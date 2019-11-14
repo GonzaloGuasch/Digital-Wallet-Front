@@ -19,7 +19,13 @@ export default class Movimientos extends React.Component {
         this.redirectToTransaction = this.redirectToTransaction.bind(this);
     }
 
+    assertLogIn() {
+        if (localStorage.getItem('cvu') == '')
+            this.props.history.push('/login')
+    }
+
     componentDidMount() {
+        this.assertLogIn();
         const cvu = this.state.cvu;
         movimientosDeCVU({cvu: cvu}).then(res =>
         {
@@ -46,6 +52,7 @@ export default class Movimientos extends React.Component {
         this.props.history.push("/profile")
     }
     redirectToLog() {
+        localStorage.setItem('cvu','')
         this.props.history.push("/login")
     }
 

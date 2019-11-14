@@ -56,6 +56,15 @@ class Transfer extends React.Component{
         this.props.history.push('/movimientos')
     }
 
+    componentDidMount() {
+        this.assertLogin();
+    }
+
+    assertLogin() {
+        if (localStorage.getItem('cvu') === '')
+            this.props.history.push('/login')
+    }
+
     render(){
         return(
             <div className="Transfer-Conteiner">

@@ -12,7 +12,7 @@ export default class CashIn extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      fromCVU: '060065243',
+      fromCVU: '',
       debitCard: 'false',
       amount: '',
       cardNumber: '',
@@ -54,6 +54,15 @@ export default class CashIn extends React.Component {
     const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY')
     axios.post('http://localhost:7000/cashin', Object.assign(this.state, {endDate: dateWithSlashes})).then((res) => console.log(res))
   }
+  assertLogIn() {
+    if (localStorage.getItem('cvu') == '')
+      this.props.history.push('/login')
+  }
+
+  componentDidMount() {
+    this.assertLogIn()
+  }
+
   render() {
     return (
       <div className="cash-in-container">

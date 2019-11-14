@@ -28,8 +28,6 @@ class Register extends React.Component{
         this.handleErrorReg = this.handleErrorReg.bind(this)
     }
 
-
-
     handleEmail(event){
         this.setState({email: event.target.value})
     }
@@ -90,7 +88,6 @@ class Register extends React.Component{
     };
     handleErrorReg = () => {
             this.setState({error:"Estamos teniendo problemas..."});
-
     };
 
     render() {

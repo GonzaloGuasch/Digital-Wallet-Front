@@ -80,7 +80,13 @@ class ProfileView extends React.Component {
         )
     }
 
+    assertLogIn() {
+        if (localStorage.getItem('cvu') == '')
+            this.props.history.push('/login')
+    }
+
     componentDidMount() {
+        this.assertLogIn()
         const cvu = localStorage.getItem('cvu');
         datosDeUser({cvu: cvu}).then(res => {
             this.setState({
