@@ -111,9 +111,8 @@ class ProfileView extends React.Component {
     }
 
     setearDinero(res) {
-        const amount = JSON.parse(res);
         this.setState({
-            amount: amount.balance
+            amount: res.message
         })
     }
 }

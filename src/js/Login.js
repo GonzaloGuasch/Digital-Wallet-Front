@@ -63,10 +63,7 @@ class Login extends React.Component {
     };
 
     handleLog = (res) => {
-
-        const cvuParse = JSON.parse(res.data);
-
-        localStorage.setItem('cvu', cvuParse.cvu);
+        localStorage.setItem('cvu', res.data.cvu);
         console.log(localStorage.getItem('cvu'));
 
         this.redirectToNextPage()
