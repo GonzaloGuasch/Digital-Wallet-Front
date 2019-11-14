@@ -4,6 +4,8 @@
 
 
 .cash-in-container {
+    margin-top: 30px;
+    margin-left: 290px;
     width: 800px;
     height: 550px;
     -webkit-box-shadow: 4px 7px 6px 0px rgba(163,163,163,1);
