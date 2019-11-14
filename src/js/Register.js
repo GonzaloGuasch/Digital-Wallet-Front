@@ -25,7 +25,8 @@ class Register extends React.Component{
         this.checkRegister = this.checkRegister.bind(this);
         this.handleReg = this.handleReg.bind(this);
         this.registerUser = this.registerUser.bind(this);
-        this.handleErrorReg = this.handleErrorReg.bind(this)
+        this.handleErrorReg = this.handleErrorReg.bind(this);
+        this.logUser = this.logUser.bind(this)
     }
 
     handleEmail(event){
@@ -55,7 +56,6 @@ class Register extends React.Component{
             || this.state.firstName.trim().length < 1
             || this.state.lastName.trim().length < 1
             || this.state.idCard.trim().length < 1
-            || this.state.idCard === ""
         ) {
             this.setState({ error: "Campos vacios..." });
             console.log(this.state.error);
@@ -66,7 +66,25 @@ class Register extends React.Component{
             console.log(this.state.error);
             return;
         }
+        if (typeof this.state.idCard === typeof String) {
+            this.setState({error: "Ingrese un número en el id card"});
+            console.log(this.state.error);
+            return;
+        }
         this.registerUser()
+    };
+
+    logUser = () => {
+        axios.post("http://localhost:7000/login", {
+            email: this.state.email,
+            password: this.state.password
+        })
+            .then(this.handleLog)
+    };
+
+    handleLog = (res) => {
+        localStorage.setItem('cvu', res.data.cvu);
+        console.log(localStorage.getItem('cvu'));
     };
 
     registerUser = () => {
@@ -77,6 +95,7 @@ class Register extends React.Component{
             idCard: this.state.idCard,
             password: this.state.password
         })
+            .then(this.logUser)
             .then(this.handleReg)
             .catch(this.handleErrorReg)
     };
@@ -87,8 +106,7 @@ class Register extends React.Component{
         this.props.history.push('/movimientos')
     };
     handleErrorReg = () => {
-            this.setState({error:"Estamos teniendo problemas..."});
-
+        this.setState({error: "Estamos teniendo problemas..."});
     };
 
     render() {
