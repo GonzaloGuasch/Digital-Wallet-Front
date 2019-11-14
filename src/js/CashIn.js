@@ -12,7 +12,7 @@ export default class CashIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromCVU: '',
+      fromCVU: localStorage.getItem('cvu'),
       debitCard: 'false',
       amount: '',
       cardNumber: '',
