@@ -69,3 +69,8 @@ button {
     height: 40px;
     width: 40px;
 }
+.containerSignOut{
+    margin-left: 600px;
+    margin-top: 25px;
+    width: 120px;
+}

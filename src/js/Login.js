@@ -110,14 +110,14 @@ class Login extends React.Component {
                     <label className="valid-input">{this.state.error}</label>
                 </div>
 
-                <button type="button"
+                <button type="submit"
                         className="btnConfirm"
                         onClick={this.checkInput}>
                     Login
                 </button>
                 <br/>
 
-                <button type="submit"
+                <button type="button"
                         className="btnDenied"
                         value="Submit"
                         onClick={this.redirectToRegister}
