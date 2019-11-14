@@ -12,7 +12,7 @@ export default class CashIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fromCVU: '',
+      fromCVU: localStorage.getItem('cvu'),
       debitCard: 'false',
       amount: '',
       cardNumber: '',
@@ -53,6 +53,7 @@ export default class CashIn extends React.Component {
   async handleSubmit() {
       const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY');
     axios.post('http://localhost:7000/cashin', Object.assign(this.state, {endDate: dateWithSlashes})).then((res) => console.log(res))
+    this.goBack()
   }
   assertLogIn() {
       if (localStorage.getItem('cvu') === '')
