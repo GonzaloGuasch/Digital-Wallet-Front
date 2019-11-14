@@ -80,7 +80,13 @@ class ProfileView extends React.Component {
         )
     }
 
+    assertLogIn() {
+        if (localStorage.getItem('cvu') === '')
+            this.props.history.push('/login')
+    }
+
     componentDidMount() {
+        this.assertLogIn();
         const cvu = localStorage.getItem('cvu');
         datosDeUser({cvu: cvu}).then(res => {
             this.setState({
@@ -105,9 +111,8 @@ class ProfileView extends React.Component {
     }
 
     setearDinero(res) {
-        const amount = JSON.parse(res);
         this.setState({
-            amount: amount.balance
+            amount: res.message
         })
     }
 }

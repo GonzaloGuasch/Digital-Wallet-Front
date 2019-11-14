@@ -63,18 +63,14 @@ class Login extends React.Component {
     };
 
     handleLog = (res) => {
-
-        const cvuParse = JSON.parse(res.data);
-
-        localStorage.setItem('cvu', cvuParse.cvu);
+        localStorage.setItem('cvu', res.data.cvu);
         console.log(localStorage.getItem('cvu'));
 
         this.redirectToNextPage()
     };
     handleErrorLog = (error) => {
         if (error.response && error.response.status === 401) {
-            this.setState({error: "Mal usuario o contraseña..."});
-
+            this.setState({error: "Usuario o contraseña incorrectos..."});
         } else {
             this.setState({error: "Estamos teniendo problemas..."});
 

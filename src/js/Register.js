@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/Register.css'
 import axios from "axios"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 
 class Register extends React.Component{
@@ -24,11 +24,10 @@ class Register extends React.Component{
         this.redirectToLogin = this.redirectToLogin.bind(this);
         this.checkRegister = this.checkRegister.bind(this);
         this.handleReg = this.handleReg.bind(this);
-        this.registerUser = this.registerUser.bind(this)
-        this.handleErrorReg = this.handleErrorReg.bind(this)
+        this.registerUser = this.registerUser.bind(this);
+        this.handleErrorReg = this.handleErrorReg.bind(this);
+        this.logUser = this.logUser.bind(this)
     }
-
-
 
     handleEmail(event){
         this.setState({email: event.target.value})
@@ -67,8 +66,25 @@ class Register extends React.Component{
             console.log(this.state.error);
             return;
         }
-
+        if (typeof this.state.idCard === typeof String) {
+            this.setState({error: "Ingrese un número en el id card"});
+            console.log(this.state.error);
+            return;
+        }
         this.registerUser()
+    };
+
+    logUser = () => {
+        axios.post("http://localhost:7000/login", {
+            email: this.state.email,
+            password: this.state.password
+        })
+            .then(this.handleLog)
+    };
+
+    handleLog = (res) => {
+        localStorage.setItem('cvu', res.data.cvu);
+        console.log(localStorage.getItem('cvu'));
     };
 
     registerUser = () => {
@@ -79,18 +95,18 @@ class Register extends React.Component{
             idCard: this.state.idCard,
             password: this.state.password
         })
+            .then(this.logUser)
             .then(this.handleReg)
             .catch(this.handleErrorReg)
     };
     handleReg = () => {
         this.redirectToNextPage()
     };
-    redirectToNextPage = () =>{
-        this.props.history.push('/hello')
+    redirectToNextPage = () => {
+        this.props.history.push('/movimientos')
     };
     handleErrorReg = () => {
-            this.setState({error:"Estamos teniendo problemas..."});
-            return;
+        this.setState({error: "Estamos teniendo problemas..."});
     };
 
     render() {
