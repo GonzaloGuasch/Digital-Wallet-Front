@@ -37,7 +37,7 @@ class ProfileView extends React.Component {
                 <div className={"userbar"}>
                     <i className="user circle icon usericon"></i></div>
                 <div className="errorInput">
-                    <a className="valid-input">{this.state.error}</a>
+                    <label className="valid-input">{this.state.error}</label>
                 </div>
                 <form className="formDW">
                     <h5 className="titleInput">First name</h5>
