@@ -85,6 +85,7 @@ class Register extends React.Component{
     handleLog = (res) => {
         localStorage.setItem('cvu', res.data.cvu);
         console.log(localStorage.getItem('cvu'));
+        this.handleReg()
     };
 
     registerUser = () => {
@@ -96,7 +97,6 @@ class Register extends React.Component{
             password: this.state.password
         })
             .then(this.logUser)
-            .then(this.handleReg)
             .catch(this.handleErrorReg)
     };
     handleReg = () => {
