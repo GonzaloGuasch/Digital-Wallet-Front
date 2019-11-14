@@ -22,7 +22,21 @@ class Transfer extends React.Component{
         const amount = this.state.amount;
         const fromCVU = localStorage.getItem('cvu');
         const toCVU = this.state.cvu;
-        crearTransferencia({
+
+        this.setState({errorMessage: ""});
+        if (this.state.cvu.trim().length < 1 || this.state.amount.trim().length < 1) {
+            this.setState({errorMessage: "Campos vacios..."});
+            return;
+        }
+        if (this.state.amount < 1) {
+            this.setState({errorMessage: "El monto debe ser mayor a 1."});
+            return;
+        }
+        if (localStorage.getItem('amount') < this.state.amount) {
+            this.setState({errorMessage: "No tiene fondos suficientes para la transferencia."});
+            return;
+        }
+        crearTransferencia ({
             fromCVU: fromCVU,
             toCVU: toCVU,
             amount: amount
@@ -31,18 +45,16 @@ class Transfer extends React.Component{
 
     handleRes(res){
         JSON.parse(res)
-        console.log(res)
+        this.goBack()
     }
     handleError = (error) =>{
-        let errorMessage = ''
-        if(error.response.data !== undefined) {
-            errorMessage = JSON.parse(error.response.data);
-        }else{
-            errorMessage = "Llename los campos bb"
+        if (error.response && error.response.status === 401) {
+            this.setState({error: "El cvu destino no existe."});
+
+        } else {
+            this.setState({error: "Estamos teniendo problemas..."});
+
         }
-        this.setState({
-            errorMessage: errorMessage.message
-        })
     }
 
     seatleAmount(event){
