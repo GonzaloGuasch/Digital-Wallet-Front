@@ -10,7 +10,7 @@ import moment from 'moment'
 
 export default class CashIn extends React.Component {
   constructor(props) {
-      super(props);
+    super(props);
     this.state = {
       fromCVU: '',
       debitCard: 'false',
@@ -79,13 +79,13 @@ export default class CashIn extends React.Component {
           </div>
           <div className="radio-buttons-container">
             <div className="pretty p-default p-round">
-              <input type="radio" id="credit-card" name="payment" value="false" checked={!this.state.isDebitCard} onChange={this.handlePaymentChange}/>
+              <input type="radio" id="credit-card" name="payment" value="false" checked={this.state.debitCard === 'false'} onChange={this.handlePaymentChange}/>
               <div className="state p-success">
                 <label htmlFor="credit-card">Credit Card</label>
               </div>
             </div>
             <div className="pretty p-default p-round">
-              <input type="radio" id="debit-card" name="payment" value="true"  checked={!!this.state.isDebitCard} onChange={this.handlePaymentChange}/>
+              <input type="radio" id="debit-card" name="payment" value="true"  checked={this.state.debitCard === 'true'} onChange={this.handlePaymentChange}/>
               <div className="state p-success">
                 <label htmlFor="debit-card">Debit Card</label>
               </div>
