@@ -76,7 +76,7 @@ export default class Movimientos extends React.Component {
                     </table>
                 </div>
                 <div className="containerSignOut">
-                <button class="btnDenied" onClick={this.redirectToLog}> Sign out</button>
+                <button className="btnDenied" onClick={this.redirectToLog}> Sign out</button>
                 </div>
             </div>
         )};
