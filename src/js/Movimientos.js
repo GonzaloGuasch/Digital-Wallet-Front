@@ -35,9 +35,8 @@ export default class Movimientos extends React.Component {
 
     }
     setearDinero(res){
-        const dinero = JSON.parse(res);
         this.setState({
-            saldo: dinero.balance
+            saldo: res.message
         })
     }
 
