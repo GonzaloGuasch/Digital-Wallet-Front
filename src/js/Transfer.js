@@ -16,7 +16,6 @@ class Transfer extends React.Component{
         this.setCVU = this.setCVU.bind(this);
         this.goBack = this.goBack.bind(this);
         this.handleError = this.handleError.bind(this);
-        this.handleRes = this.handleRes.bind(this);
     }
     checkTransferencia(){
         const amount = this.state.amount;
@@ -32,27 +31,19 @@ class Transfer extends React.Component{
             this.setState({errorMessage: "El monto debe ser mayor a 1."});
             return;
         }
-        if (localStorage.getItem('amount') < this.state.amount) {
-            this.setState({errorMessage: "No tiene fondos suficientes para la transferencia."});
-            return;
-        }
         crearTransferencia ({
             fromCVU: fromCVU,
             toCVU: toCVU,
             amount: amount
-        }).then(res => this.handleRes(res))
+        }).then(res => this.goBack())
             .catch(error =>this.handleError(error))};
 
-    handleRes(res){
-        this.goBack()
-    }
     handleError = (error) =>{
         if (error.response && error.response.status === 401) {
-            this.setState({error: "El cvu destino no existe."});
+            this.setState({errorMessage: "El cvu destino no existe."});
 
         } else {
-            this.setState({error: "Estamos teniendo problemas..."});
-
+            this.setState({errorMessage: "Estamos teniendo problemas..."});
         }
     }
 

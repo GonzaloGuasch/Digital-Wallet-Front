@@ -19,6 +19,7 @@ export default class CashIn extends React.Component {
       fullName: '',
       endDate: '',
       securityCode: '',
+      error: ''
     };
       this.handleAmountChange = this.handleAmountChange.bind(this);
       this.handlePaymentChange = this.handlePaymentChange.bind(this);
@@ -27,7 +28,8 @@ export default class CashIn extends React.Component {
       this.handleSecurityCodeChange = this.handleSecurityCodeChange.bind(this);
       this.handleEndDateChange = this.handleEndDateChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-    this.goBack = this.goBack.bind(this)
+      this.goBack = this.goBack.bind(this)
+      this.checkInput = this.checkInput.bind(this)
   }
   handleAmountChange(event) {
     this.setState({amount: event.target.value})
@@ -50,9 +52,40 @@ export default class CashIn extends React.Component {
   goBack(){
     this.props.history.push('/movimientos')
   }
+
+  checkInput = () =>{
+    if (this.state.amount.trim().length < 1
+        || this.state.cardNumber.trim().length < 1
+        || this.state.fullName.trim().length < 1
+        || this.state.securityCode.trim().length < 1
+        || !this.state.endDate
+    ) {
+      this.setState({ error: "Campos vacios..." });
+      return;
+    }
+    if (this.state.cardNumber.trim().length !== 16) {
+      this.setState({ error: "Numero de tarjeta mal formado..." });
+      return;
+    }
+    if (Number.isNaN(parseInt(this.state.cardNumber)) || (Number.isNaN(parseInt(this.state.securityCode)))) {
+      this.setState({error: "Verifique que los campos de su tarjeta sean correctos"});
+      return;
+    }
+    if (!this.state.endDate) {
+      this.setState({error: "Por favor elija una fecha"})
+      return;
+    }
+    this.handleSubmit()
+  }
+
   async handleSubmit() {
-      const dateWithSlashes = moment(this.state.endDate).format('DD/MM/YYYY');
-    axios.post('http://localhost:7000/cashin', Object.assign(this.state, {endDate: dateWithSlashes})).then((res) => {
+    console.log(moment(this.state.endDate))
+    console.log(moment(this.state.endDate).format('DD/MM/YYYY'))
+      const endDate = moment(this.state.endDate).format('DD/MM/YYYY');
+    const { fromCVU, amount, cardNumber, debitCard, fullName, securityCode } = this.state
+    axios.post('http://localhost:7000/cashin', {
+      fromCVU, amount, cardNumber, debitCard, fullName, securityCode, endDate
+    }).then((res) => {
       this.goBack()
     })
   }
@@ -123,9 +156,10 @@ export default class CashIn extends React.Component {
               />
             </div>
           </div>
+          <label className="errorValidCash">{this.state.error}</label>
           <div className="buttons-container">
             <button className="button cancel" onClick={this.goBack}>Cancel</button>
-            <button className="button confirm" onClick={this.handleSubmit}>Confirm</button>
+            <button className="button confirm" onClick={this.checkInput}>Confirm</button>
           </div>
         </div>
       </div>
