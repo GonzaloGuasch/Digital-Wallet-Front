@@ -44,7 +44,6 @@ class Transfer extends React.Component{
             .catch(error =>this.handleError(error))};
 
     handleRes(res){
-        JSON.parse(res)
         this.goBack()
     }
     handleError = (error) =>{
