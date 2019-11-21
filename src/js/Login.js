@@ -21,7 +21,6 @@ class Login extends React.Component {
         this.checkInput = this.checkInput.bind(this);
         this.redirectToNextPage = this.redirectToNextPage.bind(this);
         this.redirectToRegister = this.redirectToRegister.bind(this);
-        this.handleLog = this.handleLog.bind(this);
         this.handleErrorLog = this.handleErrorLog.bind(this)
     }
 
@@ -40,7 +39,8 @@ class Login extends React.Component {
         this.props.history.push('/register')
     };
 
-    checkInput = () => {
+    checkInput = (e) => {
+        e.preventDefault();
         this.setState({error: ""});
         if (this.state.email.trim().length < 1 || this.state.password.trim().length < 1) {
             this.setState({error: "Campos vacios..."});
