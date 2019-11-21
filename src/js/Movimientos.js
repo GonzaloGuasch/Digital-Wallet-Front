@@ -36,7 +36,7 @@ export default class Movimientos extends React.Component {
     }
     setearDinero(res){
         this.setState({
-            saldo: res.message
+            saldo: res.amount
         })
     }
 

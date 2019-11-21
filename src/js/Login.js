@@ -64,7 +64,6 @@ class Login extends React.Component {
 
     handleLog = (res) => {
         localStorage.setItem('cvu', res.data.cvu);
-
         this.redirectToNextPage()
     };
     handleErrorLog = (error) => {
@@ -72,7 +71,6 @@ class Login extends React.Component {
             this.setState({error: "Usuario o contraseña incorrectos..."});
         } else {
             this.setState({error: "Estamos teniendo problemas..."});
-
         }
     };
 

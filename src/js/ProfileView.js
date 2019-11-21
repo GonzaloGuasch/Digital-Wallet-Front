@@ -112,7 +112,7 @@ class ProfileView extends React.Component {
 
     setearDinero(res) {
         this.setState({
-            amount: res.message
+            amount: res.amount
         })
     }
 }
